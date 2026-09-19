@@ -71,50 +71,42 @@ canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}.toolb
 .scene{background:linear-gradient(#f8fbf4 0%,#fdfaf1 70%)}
 
 
-/* V7 MOBILE LAYOUT FIXES */
-.world{overflow:hidden!important;padding:18px!important;min-height:165px!important}
-.world:after{display:none!important;content:none!important}
-.world h3{position:relative;z-index:2;margin:12px 0 7px!important;line-height:1.12!important}
-.world p{position:relative;z-index:2;line-height:1.4!important;display:block!important;overflow:visible!important}
-.world .ico{position:relative;z-index:2}
-.activity{overflow:hidden!important}
-.activity:after{display:none!important}
-
-/* replace leftover word-label activity icons with clean text badges */
-.activity .ico{
-  min-width:72px!important;width:72px!important;height:58px!important;
-  border-radius:18px!important;padding:7px!important;font-size:10px!important;
-  letter-spacing:1px!important;overflow:hidden!important;
-}
-
-/* certificate mobile redesign */
-#passport .certificate{
-  width:calc(100% - 20px)!important;
-  max-width:none!important;
-  margin:14px 10px!important;
-  padding:42px 22px!important;
-  min-height:500px!important;
-  border:4px solid #d7bd6d!important;
-  outline:2px solid #d7bd6d!important;
-  outline-offset:-11px!important;
-  border-radius:28px!important;
-  box-shadow:0 14px 35px rgba(69,93,69,.12)!important;
-  background:linear-gradient(180deg,#fffdf8,#fffaf0)!important;
-}
-.certificate .arabic{font-size:25px!important;line-height:1.8!important;direction:rtl!important;font-family:serif!important}
-.certificate h1{font-size:38px!important;line-height:1.05!important;margin:24px 0!important}
-.certificate h2{font-size:34px!important;margin:28px 0!important;color:#526b50!important}
+/* V8 CLEAN FIX */
+.world:after,.activity:after{display:none!important;content:none!important}
+.world{overflow:hidden!important;min-height:170px!important;padding:17px!important}
+.world h3,.world p,.world .ico{position:relative!important;z-index:2!important}
+.world p{overflow:visible!important;line-height:1.4!important}
+#passport .certificate{width:auto!important;max-width:760px!important;margin:14px 18px!important;padding:42px 24px!important;min-height:440px!important;border:4px solid #d7bd6d!important;outline:2px solid #d7bd6d!important;outline-offset:-11px!important;border-radius:28px!important;background:linear-gradient(#fffdf8,#fff9ed)!important}
+.certificate h1{font-size:38px!important;line-height:1.08!important;margin:22px 0!important}
+.certificate h2{font-size:34px!important;color:#526b50!important;margin:26px 0!important}
 .certificate p{font-size:18px!important;line-height:1.55!important}
-.certificate strong{display:block;margin-top:28px!important;font-size:16px!important}
+.star-shape{display:inline-block;width:18px;height:18px;background:#dfbd58;clip-path:polygon(50% 0,61% 35%,98% 36%,68% 57%,79% 94%,50% 72%,21% 94%,32% 57%,2% 36%,39% 35%);vertical-align:-3px}
+.maze-controls{display:grid!important;grid-template-columns:repeat(3,58px);grid-template-rows:repeat(2,52px);justify-content:center;gap:8px;margin-top:16px}
+.arrowbtn{width:58px!important;min-width:58px!important;height:52px!important;position:relative!important;padding:0!important}
+.arrowbtn:before{content:"";position:absolute;width:13px;height:13px;border-top:4px solid #526b50;border-left:4px solid #526b50}
+.arrow-up{grid-column:2;grid-row:1}.arrow-up:before{transform:rotate(45deg);left:20px;top:20px}
+.arrow-left{grid-column:1;grid-row:2}.arrow-left:before{transform:rotate(-45deg);left:23px;top:18px}
+.arrow-down{grid-column:2;grid-row:2}.arrow-down:before{transform:rotate(225deg);left:20px;top:14px}
+.arrow-right{grid-column:3;grid-row:2}.arrow-right:before{transform:rotate(135deg);left:16px;top:18px}
+@media(max-width:520px){.world{min-height:185px!important}.world h3{font-size:22px!important}.world p{font-size:13.5px!important}#passport .certificate{margin:14px 12px!important;padding:36px 18px!important}.certificate h1{font-size:34px!important}}
 
-/* phone card spacing */
-@media(max-width:520px){
- .worlds{gap:14px!important;padding:10px 14px!important}
- .world{min-height:185px!important;padding:16px!important}
- .world h3{font-size:23px!important}
- .world p{font-size:14px!important}
- #passport .card:not(.certificate){margin-left:14px!important;margin-right:14px!important}
-}
+
+/* V9 proper masjid illustration */
+.proper-masjid{position:absolute;width:245px;height:145px;left:50%;bottom:20px;transform:translateX(-50%);z-index:4}
+.masjid-main{position:absolute;width:170px;height:82px;left:38px;bottom:0;background:#fffdf7;border:3px solid #6f8d69;border-radius:10px 10px 4px 4px;box-shadow:0 10px 24px rgba(69,93,69,.13)}
+.big-dome{position:absolute;width:112px;height:55px;left:26px;top:-53px;background:#a9bea2;border:3px solid #6f8d69;border-bottom:0;border-radius:60px 60px 5px 5px}
+.big-dome:after{content:"";position:absolute;width:6px;height:15px;background:#d3b45f;left:50px;top:-15px;border-radius:4px}
+.dome-crescent,.minaret-crescent{position:absolute;width:13px;height:13px;border-radius:50%;border:3px solid #d3b45f;border-right-color:transparent;transform:rotate(-20deg)}
+.dome-crescent{left:47px;top:-29px}
+.masjid-door{position:absolute;width:40px;height:54px;left:62px;bottom:0;background:#d9bd78;border:3px solid #b99b51;border-bottom:0;border-radius:22px 22px 0 0}
+.masjid-window{position:absolute;width:20px;height:31px;bottom:24px;background:#dcecf0;border:2px solid #789573;border-radius:12px 12px 3px 3px}
+.masjid-window.w1{left:22px}.masjid-window.w2{right:22px}
+.minaret{position:absolute;width:27px;height:105px;bottom:0;background:#fffdf7;border:3px solid #6f8d69;border-radius:5px 5px 2px 2px}
+.left-minaret{left:5px}.right-minaret{right:5px}
+.minaret:before{content:"";position:absolute;width:37px;height:8px;left:-8px;top:24px;background:#d9bd78;border:2px solid #6f8d69;border-radius:6px}
+.minaret-cap{position:absolute;width:35px;height:24px;left:-7px;top:-24px;background:#a9bea2;border:3px solid #6f8d69;border-bottom:0;border-radius:24px 24px 3px 3px}
+.minaret-cap:after{content:"";position:absolute;width:4px;height:12px;background:#d3b45f;left:13px;top:-12px;border-radius:4px}
+.minaret-crescent{left:5px;top:-49px;width:11px;height:11px}
 
 </style>
 </head>
@@ -122,7 +114,40 @@ canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}.toolb
 <div class="app">
 <section id="home" class="screen active">
  <div class="header"><div class="logo">ISLAMIC BLOOM</div><div class="pill brand-pill"><span class="mini-moon"></span> DEEN QUEST</div></div>
- <div class="hero"><div class="arabic">&#1605;&#1614;&#1575; &#1588;&#1614;&#1575;&#1569;&#1614; &#1649;&#1604;&#1604;&#1617;&#1614;&#1607;&#1615;</div><h1>Deen Quest<br>Certificate</h1><p>This certificate celebrates</p><h2 id="certName"></h2><p>for learning, playing and growing in Islamic knowledge.</p><strong>Islamic Bloom - Deen Quest</strong></div><div class="card"><button class="main" onclick="window.print()">Print My Certificate</button></div></section>
+ <div class="hero"><div class="arabic">Ø¨ÙØ³ÙÙÙ Ù±ÙÙÙÙÙ°ÙÙ</div><h1>Play - Learn - <span>Explore</span></h1><p>A playful Islamic activity adventure made for little learners.</p></div>
+ <div class="scene">
+<div class="cloud cloud1"><i></i><b></b></div>
+<div class="cloud cloud2"><i></i><b></b></div>
+<div class="sun happy"><span class="eye e1"></span><span class="eye e2"></span><span class="smile"></span></div><div class="hill"></div><div class="hill two"></div><div class="proper-masjid" aria-label="Masjid illustration">
+  <div class="minaret left-minaret"><span class="minaret-cap"></span><span class="minaret-crescent"></span></div>
+  <div class="minaret right-minaret"><span class="minaret-cap"></span><span class="minaret-crescent"></span></div>
+  <div class="masjid-main">
+    <div class="big-dome"><span class="dome-crescent"></span></div>
+    <div class="masjid-window w1"></div><div class="masjid-window w2"></div>
+    <div class="masjid-door"></div>
+  </div>
+</div></div>
+ <div class="card"><h3>Who's playing today?</h3><p class="muted">Each child gets their own private progress on this device.</p><div id="profiles"></div><input id="nameInput" maxlength="24" placeholder="Child's first name"><button class="main" onclick="createProfile()">Create Deen Passport</button></div>
+</section>
+
+<section id="dash" class="screen">
+ <div class="header"><button class="ghost" onclick="profilesHome()"><- Profiles</button><div class="pill" id="stars"><span class="star-shape"></span> 0</div></div>
+ <div class="card"><small>AS-SALAMU ALAYKUM</small><h2 id="hello"></h2><div id="level" class="level"></div><div class="progress"><div id="bar"></div></div></div>
+ <div class="worlds">
+  <button class="world" onclick="openWorld('learn')"><div class="ico icon-moon"><span></span></div><h3>Learn & Explore</h3><p>Wudu, Salah, Sunnah, pillars and more.</p></button>
+  <button class="world" onclick="openWorld('match')"><div class="ico icon-puzzle"><span></span></div><h3>Match & Play</h3><p>Matching, memory, sorting and patterns.</p></button>
+  <button class="world" onclick="openWorld('trace')"><div class="ico icon-pencil"><span></span></div><h3>Trace Arabic</h3><p>Finger and Apple Pencil letter practice.</p></button>
+  <button class="world" onclick="openWorld('colour')"><div class="ico icon-palette"><span></span></div><h3>Colour & Create</h3><p>Colour, draw and design Islamic scenes.</p></button>
+  <button class="world" onclick="openWorld('puzzle')"><div class="ico icon-search"><span></span></div><h3>Puzzles & Hunts</h3><p>Mazes, hidden objects and quick challenges.</p></button>
+  <button class="world" onclick="openWorld('passport')"><div class="ico icon-cup"><span></span></div><h3>My Passport</h3><p>Badges, level and completion certificate.</p></button>
+ </div>
+</section>
+
+<section id="world" class="screen"><div class="header"><button class="ghost" onclick="show('dash')"><- Home</button><div class="pill" id="worldStars"></div></div><div class="card"><h2 id="worldTitle"></h2><p id="worldDesc" class="muted"></p><div id="activityList"></div></div></section>
+<section id="game" class="screen"><div class="header"><button class="ghost" onclick="backWorld()"><- Back</button><div class="pill">DEEN QUEST</div></div><div class="card" id="gameBox"></div></section>
+<section id="trace" class="screen"><div class="header"><button class="ghost" onclick="openWorld('trace')"><- Trace</button><div class="pill" id="traceNo"></div></div><div class="card center"><h2>TRACE Arabic Letter Trail</h2><p class="muted">Trace over the pale letter with your finger or Apple Pencil.</p><div class="traceBox"><div id="traceLetter" class="traceLetter">Ø§</div><canvas id="traceCanvas"></canvas></div><div class="toolbar"><button class="smallbtn" onclick="clearCanvas('traceCanvas')">Clear</button><button class="main" onclick="nextTrace()">Done STAR</button></div></div></section>
+<section id="colour" class="screen"><div class="header"><button class="ghost" onclick="openWorld('colour')"><- Create</button><div class="pill" id="colourNo"></div></div><div class="card center"><h2 id="colourTitle"></h2><p class="muted">Colour freely with your finger or Apple Pencil.</p><div class="drawBox"><div id="paintGuide" class="paintGuide"></div><canvas id="paintCanvas"></canvas></div><div class="toolbar" id="colours"></div><div class="toolbar"><button class="smallbtn" onclick="setEraser()">Eraser</button><button class="smallbtn" onclick="clearCanvas('paintCanvas')">Clear</button><button class="main" onclick="finishColour()">Finished STAR</button></div></div></section>
+<section id="passport" class="screen"><div class="header"><button class="ghost" onclick="show('dash')"><- Home</button><div class="pill">AWARDS PASSPORT</div></div><div class="card"><h2 id="passName"></h2><div id="passLevel" class="level"></div><h3>My badges</h3><div id="badges" class="badgeGrid"></div></div><div class="card certificate" id="certificate"><div class="arabic">&#1605;&#1614;&#1575; &#1588;&#1614;&#1575;&#1569;&#1614; &#1649;&#1604;&#1604;&#1617;&#1614;&#1607;&#1615;</div><h1>Deen Quest Certificate</h1><p>This certificate celebrates</p><h2 id="certName"></h2><p>for learning, playing and growing in Islamic knowledge.</p><strong>Islamic Bloom - Deen Quest</strong></div><div class="card"><button class="main" onclick="window.print()">Print My Certificate</button></div></section>
 </div>
 
 <script>
@@ -132,10 +157,10 @@ let currentWorld="learn",traceIndex=0,colourIndex=0,paintColor="#819d7a";
 
 const worlds={
  learn:{title:"MOON Learn & Explore",desc:"Little interactive missions about everyday Islamic learning.",items:[
-  ["wudu","WUDU","Wudu Order","Put the washing steps in order."],["salah","MASJID","Prayer Match","Match each prayer with its fard rak'ahs."],["pillars","PILLARS","Five Pillars","Find all five pillars of Islam."],["iman","STAR","Six Pillars of Iman","Choose the pillars of faith."],["sunnah","MOON","Sunnah Choices","Choose beautiful everyday actions."],["masjid","MASJID","Masjid Manners","Spot the respectful masjid choices."],["quran","QURAN","Qur'an Explorer","A gentle Qur'an knowledge challenge."],["character","LEAF","Kindness Hero","Choose beautiful character."]
+  ["wudu","WUDU","Wudu Order","Put the washing steps in order."],["salah","MASJID","Prayer Match","Match each prayer with its fard rak'ahs."],["pillars","PILLARS","Five Pillars","Find all five pillars of Islam."],["iman","IMAN","Six Pillars of Iman","Choose the pillars of faith."],["sunnah","MOON","Sunnah Choices","Choose beautiful everyday actions."],["masjid","MASJID","Masjid Manners","Spot the respectful masjid choices."],["quran","QURAN","Qur'an Explorer","A gentle Qur'an knowledge challenge."],["character","LEAF","Kindness Hero","Choose beautiful character."]
  ]},
  match:{title:"MATCH Match & Play",desc:"Tap, match, remember and sort.",items:[
-  ["prayerMatch","STAR","Prayer Pairs","Match prayer names and rak'ahs."],["deenMemory","MEMORY","Deen Memory","Flip and find the matching pairs."],["itemMatch","MATCH","What Goes Together?","Match items with their purpose."],["arabicMatch","ARABIC","Arabic Letter Match","Match letters with their names."],["duaMatch","DUA","Du'a Situations","Match remembrance with situations."],["goodSort","KIND","Good Choice Sort","Sort kind choices from unkind ones."],["pattern","MOON","Finish the Pattern","Find what comes next."]
+  ["prayerMatch","PRAYER","Prayer Pairs","Match prayer names and rak'ahs."],["deenMemory","MEMORY","Deen Memory","Flip and find the matching pairs."],["itemMatch","MATCH","What Goes Together?","Match items with their purpose."],["arabicMatch","ARABIC","Arabic Letter Match","Match letters with their names."],["duaMatch","DUA","Du'a Situations","Match remembrance with situations."],["goodSort","KIND","Good Choice Sort","Sort kind choices from unkind ones."],["pattern","MOON","Finish the Pattern","Find what comes next."]
  ]},
  trace:{title:"TRACE Trace Arabic",desc:"Practise Arabic letters on screen.",items:[
   ["traceLetters","TRACE","Arabic Letter Trail","Trace Ø§ through Ù with your finger or Apple Pencil."],["findLetter","SEARCH","Find the Letter","Spot the requested Arabic letter."]
@@ -159,8 +184,8 @@ function createProfile(){let n=document.getElementById("nameInput").value.trim()
 function renderProfiles(){let b=document.getElementById("profiles");b.innerHTML="";Object.entries(db.profiles).forEach(([id,x])=>{let e=document.createElement("button");e.className="activity";e.innerHTML=`<div class="ico">ð</div><div><strong>${esc(x.name)}</strong><small>${x.stars} stars - ${x.completed.length} activities</small></div>`;e.onclick=()=>{db.active=id;save();show("dash")};b.appendChild(e)})}
 function profilesHome(){db.active=null;save();renderProfiles();show("home")}
 function level(){let n=p().completed.length;return n<5?"Little Explorer":n<12?"Deen Adventurer":n<20?"Knowledge Seeker":"Deen Champion"}
-function renderDash(){if(!p()){renderProfiles();show("home");return}document.getElementById("hello").textContent=p().name+"'s Deen Quest";document.getElementById("stars").innerHTML=`<span class="star-icon"></span> ${p().stars}`;document.getElementById("level").textContent="LEVEL "+level();document.getElementById("bar").style.width=Math.min(100,p().completed.length/allActivityIds.length*100)+"%"}
-function openWorld(type){if(type==="passport"){renderPassport();show("passport");return}currentWorld=type;let w=worlds[type];document.getElementById("worldTitle").textContent=w.title;document.getElementById("worldDesc").textContent=w.desc;document.getElementById("worldStars").innerHTML=`<span class="star-icon"></span> ${p().stars}`;let box=document.getElementById("activityList");box.innerHTML="";w.items.forEach(a=>{let done=p().completed.includes(a[0]);let b=document.createElement("button");b.className="activity";b.innerHTML=`<div class="ico">${a[1]}</div><div><strong>${a[2]} ${done?"DONE":""}</strong><small>${a[3]}</small></div>`;b.onclick=()=>launch(a[0]);box.appendChild(b)});show("world")}
+function renderDash(){if(!p()){renderProfiles();show("home");return}document.getElementById("hello").textContent=p().name+"'s Deen Quest";document.getElementById("stars").innerHTML=`<span class="star-shape"></span> ${p().stars}`;document.getElementById("level").textContent="LEVEL "+level();document.getElementById("bar").style.width=Math.min(100,p().completed.length/allActivityIds.length*100)+"%"}
+function openWorld(type){if(type==="passport"){renderPassport();show("passport");return}currentWorld=type;let w=worlds[type];document.getElementById("worldTitle").textContent=w.title;document.getElementById("worldDesc").textContent=w.desc;document.getElementById("worldStars").innerHTML=`<span class="star-shape"></span> ${p().stars}`;let box=document.getElementById("activityList");box.innerHTML="";w.items.forEach(a=>{let done=p().completed.includes(a[0]);let b=document.createElement("button");b.className="activity";b.innerHTML=`<div class="ico">${a[1]}</div><div><strong>${a[2]} ${done?"DONE":""}</strong><small>${a[3]}</small></div>`;b.onclick=()=>launch(a[0]);box.appendChild(b)});show("world")}
 function backWorld(){openWorld(currentWorld)}
 function complete(id){if(!p().completed.includes(id)){p().completed.push(id);p().stars+=3;if(!p().badges.includes(badges[id]))p().badges.push(badges[id]);save();confetti()}}
 function success(id,msg="Masha Allah! You did it!"){complete(id);document.getElementById("gameBox").innerHTML+=`<div class="notice center"><strong>${msg} STAR</strong></div><button class="main" onclick="backWorld()">Continue -></button>`}
@@ -205,7 +230,39 @@ function startColour(id){activeColour=id;show("colour");let x=colouring[id];docu
 function setEraser(){paintColor="eraser"} function finishColour(){complete(activeColour);confetti();setTimeout(()=>openWorld("colour"),500)}
 function findLetterGame(id){let target=letters[Math.floor(Math.random()*10)],arr=[target,...letters.slice(0,11).filter(x=>x!==target).sort(()=>Math.random()-.5).slice(0,8)].sort(()=>Math.random()-.5);show("game");document.getElementById("gameBox").innerHTML=`<h2 class="center">SEARCH Find the Letter</h2><p class="center">Can you find <strong style="font-size:35px">${target}</strong>?</p><div class="answers" id="letters"></div>`;arr.forEach(x=>{let b=document.createElement("button");b.className="answer center";b.style.fontSize="28px";b.textContent=x;b.onclick=()=>x===target?success(id):b.classList.add("wrong");document.getElementById("letters").appendChild(b)})}
 function hiddenGame(id){show("game");let icons=["STAR","MOON","LANTERN","FLOWER","MOON","MASJID","CLOUD","MOON","QURAN","STAR","MOON","LEAF","LANTERN","MOON","DUA"].sort(()=>Math.random()-.5),need=icons.filter(x=>x==="MOON").length,got=0;document.getElementById("gameBox").innerHTML=`<h2 class="center">SEARCH Hidden Crescent Hunt</h2><p class="center">Find all ${need} crescent moons!</p><div class="worlds" id="hunt" style="padding:5px"></div>`;icons.forEach(x=>{let b=document.createElement("button");b.className="world center";b.style.minHeight="75px";b.style.fontSize="30px";b.textContent=x;b.onclick=()=>{if(x==="MOON"&&!b.disabled){b.disabled=true;b.style.opacity=.25;if(++got===need)success(id)}};document.getElementById("hunt").appendChild(b)})}
-function mazeGame(id){show("game");let pos=30,goal=5,walls=[7,8,10,13,16,19,20,22,25,26];document.getElementById("gameBox").innerHTML=`<h2 class="center">MAZE Masjid Maze</h2><p class="center muted">Use the arrows to help STAR reach MASJID.</p><div class="maze" id="maze"></div><div class="toolbar"><button class="smallbtn" onclick="moveMaze(-6)">UP</button><button class="smallbtn" onclick="moveMaze(-1)"><-</button><button class="smallbtn" onclick="moveMaze(1)">-></button><button class="smallbtn" onclick="moveMaze(6)">DOWN</button></div>`;window.moveMaze=d=>{let np=pos+d;if(np<0||np>=36||walls.includes(np)||(d===1&&pos%6===5)||(d===-1&&pos%6===0))return;pos=np;draw();if(pos===goal)success(id)};function draw(){let m=document.getElementById("maze");m.innerHTML="";for(let i=0;i<36;i++){let c=document.createElement("div");c.className="cell"+(walls.includes(i)?" wall":"")+(i===pos?" player":"")+(i===goal?" goal":"");c.textContent=i===pos?"STAR":i===goal?"MASJID":"";m.appendChild(c)}}draw()}
+function mazeGame(id){
+ show("game");
+ let row=5,col=0;
+ const goal={row:0,col:5};
+ const walls=new Set(["1,1","1,2","1,4","2,1","2,4","3,1","3,2","3,4","4,1","4,2"]);
+ document.getElementById("gameBox").innerHTML=`
+ <h2 class="center">Masjid Maze</h2>
+ <p class="center muted">Use the arrows to help the star reach the masjid.</p>
+ <div class="maze" id="maze"></div>
+ <div class="maze-controls">
+ <button class="smallbtn arrowbtn arrow-up" aria-label="Move up" onclick="moveMaze(0,-1)"></button>
+ <button class="smallbtn arrowbtn arrow-left" aria-label="Move left" onclick="moveMaze(-1,0)"></button>
+ <button class="smallbtn arrowbtn arrow-down" aria-label="Move down" onclick="moveMaze(0,1)"></button>
+ <button class="smallbtn arrowbtn arrow-right" aria-label="Move right" onclick="moveMaze(1,0)"></button>
+ </div>`;
+ window.moveMaze=function(dx,dy){
+   const nr=row+dy,nc=col+dx;
+   if(nr<0||nr>5||nc<0||nc>5||walls.has(nr+","+nc))return;
+   row=nr;col=nc;drawMaze();
+   if(row===goal.row&&col===goal.col)setTimeout(()=>success(id),180);
+ };
+ function drawMaze(){
+   const m=document.getElementById("maze");m.innerHTML="";
+   for(let r=0;r<6;r++)for(let c=0;c<6;c++){
+     const cell=document.createElement("div"),key=r+","+c;
+     cell.className="cell"+(walls.has(key)?" wall":"")+(r===row&&c===col?" player":"")+(r===goal.row&&c===goal.col?" goal":"");
+     if(r===row&&c===col)cell.innerHTML='<span class="star-shape"></span>';
+     else if(r===goal.row&&c===goal.col){cell.textContent="MASJID";cell.style.fontSize="8px";cell.style.fontWeight="900"}
+     m.appendChild(cell);
+   }
+ }
+ drawMaze();
+}
 function quickFire(id){let qs=[["Fajr fard rak'ahs?",["2","3","4"],0],["What do we say before eating?",["Bismillah","Goodbye","Nothing"],0],["Which opens the Qur'an?",["Al-Fatihah","An-Nas","Al-Falaq"],0],["Maghrib fard rak'ahs?",["2","3","4"],1],["A kind action?",["Helping","Mocking","Lying"],0]],i=0,score=0;function next(){if(i===qs.length){if(score>=4)success(id,`Great work â ${score}/5!`);else{document.getElementById("gameBox").innerHTML=`<h2 class="center">You got ${score}/5 LEAF</h2><button class="main" onclick="launch('quick')">Try Again</button>`}return}let q=qs[i];quizLocal(q)}function quizLocal(q){show("game");let box=document.getElementById("gameBox");box.innerHTML=`<h2 class="center">QUIZ Quick-Fire ${i+1}/5</h2><p class="center">${q[0]}</p><div class="answers" id="qf"></div>`;q[1].forEach((x,j)=>{let b=document.createElement("button");b.className="answer";b.textContent=x;b.onclick=()=>{if(j===q[2])score++;i++;next()};document.getElementById("qf").appendChild(b)})}next()}
 function renderPassport(){document.getElementById("passName").textContent=p().name+"'s Deen Passport";document.getElementById("passLevel").textContent="LEVEL "+level()+" - STAR "+p().stars+" stars";document.getElementById("certName").textContent=p().name;let box=document.getElementById("badges");box.innerHTML="";let unique=[...new Set(Object.values(badges))];unique.forEach(b=>{let e=document.createElement("div");e.className="badge"+(p().badges.includes(b)?"":" locked");e.textContent=b;box.appendChild(e)})}
 function confetti(){let sy=["STAR","STAR","MOON","FLOWER"];for(let i=0;i<22;i++){let e=document.createElement("div");e.className="confetti";e.textContent=sy[Math.floor(Math.random()*sy.length)];e.style.left=Math.random()*100+"vw";document.body.appendChild(e);setTimeout(()=>{e.style.transform=`translateY(${80+Math.random()*20}vh) rotate(${Math.random()*500}deg)`;e.style.opacity=0},20);setTimeout(()=>e.remove(),1400)}}
