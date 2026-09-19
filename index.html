@@ -2,1232 +2,1142 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Deen Quest | Islamic Bloom</title>
 
 <style>
 :root{
-  --green:#718d6b;
-  --green-dark:#4f684c;
-  --sage:#a9bea2;
+  --sage:#8fa889;
+  --dark:#526b50;
   --light:#edf4e9;
   --cream:#fffdf7;
-  --gold:#e5c36d;
-  --pink:#f3ddd7;
+  --gold:#e2c46f;
+  --pink:#f2ded9;
   --text:#40513f;
-  --muted:#758273;
 }
-
 *{box-sizing:border-box}
-
 body{
   margin:0;
-  background:#edf3e9;
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#edf3e9;
   color:var(--text);
 }
-
 button,input{font:inherit}
-
+button{cursor:pointer}
 .app{
-  width:100%;
-  max-width:700px;
+  max-width:760px;
   min-height:100vh;
   margin:auto;
-  background:var(--cream);
-  overflow:hidden;
-  position:relative;
+  background:linear-gradient(#fffdf8,#eef5ea);
 }
-
-.screen{display:none;min-height:100vh}
+.screen{display:none;min-height:100vh;padding-bottom:45px}
 .screen.active{display:block}
-
-/* HEADER */
-
 .header{
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   padding:18px 20px;
-  position:relative;
-  z-index:10;
 }
-
-.logo{
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:2px;
-}
-
-.header-pill{
-  background:#fff;
+.logo{font-size:12px;font-weight:900;letter-spacing:2px}
+.pill{
+  background:white;
   padding:9px 14px;
   border-radius:100px;
-  box-shadow:0 5px 20px rgba(70,90,65,.10);
+  box-shadow:0 5px 18px #536a5017;
+  font-weight:800;
   font-size:13px;
-  font-weight:700;
 }
 
 /* HOME */
-
-.home{
-  background:
-    radial-gradient(circle at 10% 15%,#fff 0 4%,transparent 4.2%),
-    linear-gradient(#fffdf8,#edf5e9);
-}
-
-.hero{
-  text-align:center;
-  padding:10px 25px 0;
-}
-
-.bismillah{
-  color:#839b7d;
-  font-size:14px;
-  letter-spacing:1px;
-  margin-bottom:13px;
-}
-
+.hero{text-align:center;padding:20px}
+.arabic{font-size:22px;color:#7e9879}
 .hero h1{
-  font-family:Georgia,serif;
-  font-size:45px;
-  line-height:1.03;
-  margin:0;
-  color:#496047;
+  font:700 44px/1.05 Georgia,serif;
+  color:var(--dark);
+  margin:15px 0;
 }
-
 .hero h1 span{color:#91aa89}
+.hero p{color:#748172;line-height:1.6}
 
-.hero p{
-  max-width:460px;
-  margin:17px auto;
-  color:#758273;
-  line-height:1.6;
-}
-
-/* ILLUSTRATED WORLD */
-
+/* WORLD */
 .world{
-  height:315px;
+  height:260px;
   position:relative;
   overflow:hidden;
 }
-
 .sun{
-  position:absolute;
-  width:50px;
-  height:50px;
-  background:#f5d77d;
-  border-radius:50%;
-  top:22px;
-  right:55px;
-  box-shadow:0 0 0 12px rgba(245,215,125,.16);
+  width:52px;height:52px;border-radius:50%;
+  background:#f4d67c;
+  position:absolute;right:60px;top:20px;
+  box-shadow:0 0 0 13px #f4d67c33;
 }
-
-.cloud{
+.hill{
   position:absolute;
-  background:white;
-  border-radius:100px;
-  height:25px;
-  width:90px;
-}
-
-.cloud:before,.cloud:after{
-  content:"";
-  position:absolute;
-  background:white;
+  width:120%;height:180px;
+  left:-10%;bottom:-80px;
+  background:#d8e7d3;
   border-radius:50%;
 }
-
-.cloud:before{
-  width:38px;height:38px;
-  top:-17px;left:17px;
+.hill2{
+  background:#b9d0b2;
+  bottom:-110px;
 }
-
-.cloud:after{
-  width:30px;height:30px;
-  top:-10px;right:13px;
-}
-
-.cloud.one{top:65px;left:30px}
-.cloud.two{top:115px;right:5px;transform:scale(.7)}
-
-.hill-back{
-  position:absolute;
-  height:180px;
-  width:120%;
-  left:-10%;
-  bottom:-45px;
-  background:#dce9d7;
-  border-radius:50% 50% 0 0;
-}
-
-.hill-front{
-  position:absolute;
-  height:135px;
-  width:130%;
-  left:-15%;
-  bottom:-55px;
-  background:#bdd2b5;
-  border-radius:50% 50% 0 0;
-}
-
-.path{
-  position:absolute;
-  bottom:-10px;
-  left:50%;
-  width:130px;
-  height:200px;
-  transform:translateX(-50%);
-  background:#f5e6bf;
-  clip-path:polygon(42% 0,58% 0,95% 100%,5% 100%);
-}
-
-/* MOSQUE */
-
 .mosque{
-  width:185px;
-  height:105px;
   position:absolute;
-  bottom:76px;
-  left:50%;
+  width:180px;height:95px;
+  left:50%;bottom:40px;
   transform:translateX(-50%);
-  background:#fff;
+  background:white;
   border:4px solid #789573;
   border-radius:18px 18px 8px 8px;
-  box-shadow:0 15px 25px rgba(70,90,65,.15);
 }
-
 .dome{
-  width:100px;
-  height:53px;
+  position:absolute;
+  width:100px;height:50px;
+  left:36px;top:-49px;
   background:#a9bea2;
   border:4px solid #789573;
   border-bottom:0;
   border-radius:100px 100px 0 0;
-  position:absolute;
-  left:39px;
-  top:-50px;
 }
-
-.crescent{
-  position:absolute;
-  top:-80px;
-  left:80px;
-  font-size:28px;
-  color:#d5b45e;
-}
-
-.minaret{
-  width:24px;
-  height:115px;
-  background:#fff;
-  border:4px solid #789573;
-  position:absolute;
-  bottom:0;
-  border-radius:10px;
-}
-
-.minaret.left{left:-34px}
-.minaret.right{right:-34px}
-
 .door{
   position:absolute;
-  bottom:0;
-  left:70px;
-  width:40px;
-  height:58px;
+  width:38px;height:55px;
+  bottom:0;left:67px;
   background:#d9bd78;
   border-radius:25px 25px 0 0;
 }
 
-.window{
-  position:absolute;
-  width:23px;height:32px;
-  background:#dce9d7;
-  border-radius:20px 20px 5px 5px;
-  top:35px;
-}
-
-.w1{left:20px}
-.w2{right:20px}
-
-/* TREES */
-
-.tree{
-  position:absolute;
-  bottom:55px;
-}
-
-.tree .trunk{
-  width:13px;
-  height:50px;
-  background:#b89268;
-  margin:auto;
-  border-radius:5px;
-}
-
-.tree .leaves{
-  width:70px;
-  height:75px;
-  background:#88a982;
-  border-radius:50%;
-  margin-bottom:-20px;
-  box-shadow:
-    -20px 12px 0 #9bb795,
-    20px 10px 0 #769b71;
-}
-
-.tree.left{left:40px}
-.tree.right{right:30px;transform:scale(.8)}
-
-/* START */
-
-.start-box{
+/* CARDS */
+.card{
+  margin:15px 20px;
   background:white;
-  margin:-5px 20px 35px;
   padding:22px;
   border-radius:27px;
-  position:relative;
-  z-index:5;
-  box-shadow:0 15px 45px rgba(80,105,75,.12);
+  box-shadow:0 12px 35px #526b5017;
 }
-
-.start-box h3{
-  margin:0 0 7px;
+.card h2,.card h3{
   font-family:Georgia,serif;
-  font-size:21px;
+  color:var(--dark);
 }
-
-.start-box p{
-  margin:0 0 14px;
-  color:var(--muted);
-  font-size:13px;
-}
-
 input{
   width:100%;
-  border:2px solid #dce8d8;
-  background:#fbfdf9;
-  border-radius:17px;
   padding:15px;
+  border-radius:16px;
+  border:2px solid #dce7d8;
   outline:none;
+  margin-top:8px;
 }
-
-input:focus{border-color:var(--green)}
-
-.main-btn{
+.main{
   width:100%;
-  border:0;
   padding:15px;
+  border:0;
   border-radius:17px;
-  margin-top:12px;
-  background:var(--green);
+  background:var(--sage);
   color:white;
+  font-weight:900;
+  margin-top:12px;
+  box-shadow:0 5px 0 #60785c;
+}
+.secondary{
+  padding:12px 16px;
+  border:0;
+  border-radius:15px;
+  background:white;
+  color:var(--dark);
+  box-shadow:0 4px 15px #526b5017;
   font-weight:800;
-  cursor:pointer;
-  box-shadow:0 6px 0 #536f50;
 }
 
-.main-btn:active{
-  transform:translateY(3px);
-  box-shadow:0 3px 0 #536f50;
+/* DASHBOARD */
+.welcome{padding:5px 20px}
+.welcome h1{
+  font:700 34px Georgia,serif;
+  margin:5px 0;
 }
-
-/* MAP */
-
-.map-screen{
-  background:linear-gradient(#fffdf7,#eef5ea);
-}
-
-.map-content{
-  padding:5px 20px 60px;
-}
-
-.hello-small{
-  font-size:11px;
-  letter-spacing:2px;
-  font-weight:800;
-  color:#8ba185;
-}
-
-.map-title{
-  font-family:Georgia,serif;
-  font-size:34px;
-  margin:6px 0;
-}
-
-.map-desc{
-  color:#71806f;
-  line-height:1.5;
-}
-
-.progress-wrap{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  margin:20px 0 28px;
-}
-
 .progress{
-  flex:1;
   height:11px;
-  border-radius:100px;
-  background:#dae6d6;
+  background:#dce7d8;
+  border-radius:20px;
   overflow:hidden;
+  margin:15px 0;
 }
-
-.progress-bar{
+.progress div{
   height:100%;
+  background:linear-gradient(90deg,var(--sage),var(--gold));
   width:0;
-  background:linear-gradient(90deg,#769772,#d9bd6b);
   transition:.4s;
 }
-
-.star-count{
-  font-size:13px;
-  font-weight:800;
+.worlds{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  padding:15px 20px;
 }
-
-/* ADVENTURE MAP */
-
-.adventure{
-  position:relative;
-  padding:10px 0 50px;
-}
-
-.adventure:before{
-  content:"";
-  position:absolute;
-  width:9px;
-  top:15px;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  background:#d7e4d2;
-  border-radius:30px;
-}
-
-.stop{
-  width:83%;
-  min-height:125px;
-  position:relative;
-  background:#fff;
-  border-radius:27px;
-  padding:19px 18px 18px 90px;
-  margin-bottom:28px;
-  box-shadow:0 12px 35px rgba(80,100,74,.10);
-  border:1px solid #e1eadf;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.stop:nth-child(even){margin-left:17%}
-
-.stop:hover{transform:translateY(-3px)}
-
-.stop.locked{
-  opacity:.48;
-  filter:grayscale(.5);
-}
-
-.stop-icon{
-  width:60px;
-  height:60px;
-  border-radius:19px;
-  position:absolute;
-  left:16px;
-  top:20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#edf4e9;
-  font-size:31px;
-  border:2px solid #d5e4d1;
-}
-
-.stop small{
-  color:#91a28e;
-  font-weight:800;
-  letter-spacing:1px;
-}
-
-.stop h3{
-  margin:4px 0 6px;
-  font-family:Georgia,serif;
-  font-size:21px;
-}
-
-.stop p{
-  margin:0;
-  font-size:13px;
-  color:#71806f;
-  line-height:1.4;
-}
-
-.complete{
-  color:#c4a64f;
-  margin-top:8px;
-  font-size:13px;
-  font-weight:800;
-}
-
-/* MISSION */
-
-.mission-page{
-  min-height:100vh;
-  background:linear-gradient(#edf5e9,#fffdf8);
-  padding-bottom:40px;
-}
-
-.back{
+.worldCard{
+  min-height:165px;
   border:0;
+  border-radius:26px;
+  padding:20px;
+  text-align:left;
   background:white;
-  padding:10px 14px;
-  border-radius:14px;
-  box-shadow:0 5px 18px rgba(80,100,75,.12);
-  color:#536a51;
+  color:var(--text);
+  box-shadow:0 12px 30px #526b5017;
 }
+.worldCard .icon{font-size:42px}
+.worldCard h3{font:700 21px Georgia,serif;margin:10px 0 5px}
+.worldCard p{font-size:13px;color:#788676}
 
-.mission-card{
-  margin:12px 20px;
-  padding:25px 21px;
-  background:white;
-  border-radius:30px;
-  text-align:center;
-  box-shadow:0 18px 45px rgba(75,100,70,.12);
-}
-
-.mission-world{
-  width:145px;
-  height:145px;
-  border-radius:50%;
-  background:#edf5e9;
+/* ACTIVITY LIST */
+.activity{
   display:flex;
   align-items:center;
-  justify-content:center;
-  font-size:70px;
-  margin:5px auto 17px;
-  border:7px solid #f8fbf6;
-  box-shadow:0 10px 30px rgba(80,100,75,.12);
+  gap:15px;
+  border:0;
+  width:100%;
+  background:white;
+  padding:16px;
+  border-radius:20px;
+  margin:11px 0;
+  text-align:left;
+  box-shadow:0 7px 22px #526b5014;
+}
+.activity .ico{
+  width:55px;height:55px;
+  border-radius:17px;
+  display:grid;
+  place-items:center;
+  background:var(--light);
+  font-size:28px;
+}
+.activity strong{display:block;font-size:16px}
+.activity small{color:#80907e}
+
+/* QUIZ / MATCH */
+.answers{display:grid;gap:10px;margin-top:20px}
+.answer{
+  padding:15px;
+  border:2px solid #dfe9dc;
+  background:#fbfdf9;
+  border-radius:17px;
+  text-align:left;
+  color:var(--text);
+  font-weight:700;
+}
+.correct{background:#e4f3df!important;border-color:#7ca574!important}
+.wrong{background:#f9e3df!important;border-color:#d58d85!important}
+
+.matchGrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.matchItem{
+  min-height:75px;
+  border:2px solid #dce7d8;
+  border-radius:18px;
+  background:white;
+  font-weight:800;
+  color:var(--dark);
+}
+.matchItem.selected{
+  border-color:var(--gold);
+  background:#fff8df;
+}
+.matchItem.matched{
+  background:#e3f2df;
+  border-color:#81a879;
+  opacity:.65;
 }
 
-.mission-label{
-  font-size:11px;
-  color:#8ba085;
-  letter-spacing:2px;
-  font-weight:900;
+/* MEMORY */
+.memoryGrid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
 }
-
-.mission-card h2{
-  font-family:Georgia,serif;
+.memory{
+  aspect-ratio:1;
+  border:0;
+  border-radius:18px;
+  background:var(--sage);
   font-size:30px;
-  margin:7px 0;
+  color:white;
 }
+.memory.open,.memory.done{background:white;border:2px solid #dce7d8}
 
-.question{
-  color:#687867;
+/* TRACING */
+.traceBox{
+  position:relative;
+  width:100%;
+  height:360px;
+  background:white;
+  border:2px solid #dce7d8;
+  border-radius:25px;
+  overflow:hidden;
+  touch-action:none;
+}
+.traceLetter{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  font-size:250px;
+  font-family:serif;
+  color:#e4e9e1;
+  pointer-events:none;
+  user-select:none;
+}
+canvas{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  touch-action:none;
+}
+.controls{
+  display:flex;
+  gap:10px;
+  margin-top:12px;
+}
+.controls button{flex:1}
+
+/* GARDEN */
+.garden{
+  min-height:310px;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(#dceef2 0 55%,#c6dbbd 55%);
+  border-radius:28px;
+  margin-top:15px;
+}
+.gardenSun{
+  position:absolute;right:30px;top:25px;
+  width:48px;height:48px;
+  border-radius:50%;background:#f3d579;
+}
+.flower{
+  position:absolute;
+  bottom:35px;
+  font-size:38px;
+  animation:grow .6s ease;
+}
+@keyframes grow{
+  from{transform:scale(0)}
+  to{transform:scale(1)}
+}
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.badge{
+  width:65px;height:65px;
+  border-radius:50%;
+  display:grid;place-items:center;
+  background:#f7e6a8;
+  border:5px solid #fff5d2;
+  font-size:29px;
+}
+.notice{
+  padding:12px;
+  background:#f6f1df;
+  border-radius:14px;
+  font-size:13px;
   line-height:1.5;
 }
-
-.answers{
-  display:grid;
-  gap:11px;
-  margin-top:20px;
-}
-
-.answer{
-  border:2px solid #e1eadf;
-  border-radius:18px;
-  background:#fbf9f5;
-  padding:15px;
-  text-align:left;
-  font-weight:700;
-  color:#50634e;
-}
-
-.answer.correct{
-  background:#e4f3df;
-  border-color:#7da874;
-}
-
-.answer.wrong{
-  background:#f9e4e1;
-  border-color:#d8988f;
-}
-
-.feedback{
-  margin-top:16px;
-  font-weight:800;
-}
-
-/* BADGE */
-
-.badge{
-  width:110px;
-  height:110px;
-  margin:15px auto;
-  background:linear-gradient(145deg,#f6dd91,#d5b55d);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:52px;
-  border:7px solid #fff8df;
-  box-shadow:0 10px 25px rgba(160,125,40,.25);
-  animation:badge .5s ease;
-}
-
-@keyframes badge{
-  0%{transform:scale(.3) rotate(-20deg)}
-  70%{transform:scale(1.15) rotate(8deg)}
-  100%{transform:scale(1)}
-}
-
-.spark{
-  position:fixed;
-  top:-20px;
-  z-index:999;
-  pointer-events:none;
-  transition:1.4s ease;
-}
-
-.reset{
-  border:0;
-  background:none;
-  text-decoration:underline;
-  color:#82917f;
-  display:block;
-  margin:auto;
-  padding:15px;
-}
+.center{text-align:center}
+.hidden{display:none!important}
 
 @media(max-width:500px){
-  .hero h1{font-size:39px}
-  .world{height:285px}
-  .mosque{transform:translateX(-50%) scale(.88)}
-  .tree.left{left:15px}
-  .tree.right{right:8px}
-  .stop{width:89%;padding-left:82px}
-  .stop:nth-child(even){margin-left:11%}
+  .hero h1{font-size:38px}
+  .worlds{grid-template-columns:1fr 1fr}
+  .memoryGrid{grid-template-columns:repeat(3,1fr)}
 }
-
 </style>
 </head>
 
 <body>
-
 <div class="app">
 
 <!-- HOME -->
+<section id="home" class="screen active">
+  <div class="header">
+    <div class="logo">ISLAMIC BLOOM</div>
+    <div class="pill">🌿 DEEN QUEST</div>
+  </div>
 
-<section id="home" class="screen active home">
+  <div class="hero">
+    <div class="arabic">بِسْمِ ٱللَّٰهِ</div>
+    <h1>Learn. Play.<br><span>Grow in Deen.</span></h1>
+    <p>A little Islamic adventure filled with learning, matching, tracing, play and beautiful rewards.</p>
+  </div>
 
-<div class="header">
-  <div class="logo">ISLAMIC BLOOM</div>
-  <div class="header-pill">🌿 DEEN QUEST</div>
-</div>
+  <div class="world">
+    <div class="sun"></div>
+    <div class="hill"></div>
+    <div class="hill hill2"></div>
+    <div class="mosque">
+      <div class="dome"></div>
+      <div class="door"></div>
+    </div>
+  </div>
 
-<div class="hero">
-
-<div class="bismillah">بِسْمِ ٱللَّٰهِ</div>
-
-<h1>
-A Little Journey<br>
-<span>Through Your Deen</span>
-</h1>
-
-<p>
-Travel through a peaceful Islamic world, complete little missions,
-collect badges and watch your Deen Garden grow.
-</p>
-
-<div class="world">
-
-<div class="sun"></div>
-<div class="cloud one"></div>
-<div class="cloud two"></div>
-
-<div class="hill-back"></div>
-<div class="hill-front"></div>
-<div class="path"></div>
-
-<div class="tree left">
-  <div class="leaves"></div>
-  <div class="trunk"></div>
-</div>
-
-<div class="tree right">
-  <div class="leaves"></div>
-  <div class="trunk"></div>
-</div>
-
-<div class="mosque">
-  <div class="crescent">☾</div>
-  <div class="dome"></div>
-  <div class="minaret left"></div>
-  <div class="minaret right"></div>
-  <div class="window w1"></div>
-  <div class="window w2"></div>
-  <div class="door"></div>
-</div>
-
-</div>
-</div>
-
-<div class="start-box">
-
-<h3>Welcome, little explorer 🌿</h3>
-
-<p>
-Create your Deen Passport and begin your adventure.
-</p>
-
-<input
-id="playerName"
-placeholder="What's your first name?"
-autocomplete="off">
-
-<button class="main-btn" onclick="startQuest()">
-Bismillah — Begin My Journey ✨
-</button>
-
-</div>
-
+  <div class="card">
+    <h3>Who's playing today? 🌷</h3>
+    <p>Create a separate Deen Passport for each child.</p>
+    <div id="profiles"></div>
+    <input id="newName" placeholder="Child's first name">
+    <button class="main" onclick="createProfile()">Create My Deen Passport ✨</button>
+  </div>
 </section>
 
+<!-- DASHBOARD -->
+<section id="dashboard" class="screen">
+  <div class="header">
+    <button class="secondary" onclick="switchProfile()">← Profiles</button>
+    <div class="pill" id="stars">⭐ 0</div>
+  </div>
 
-<!-- MAP -->
+  <div class="welcome">
+    <small>AS-SALĀMU ʿALAYKUM</small>
+    <h1 id="hello"></h1>
+    <p>What would you like to explore today?</p>
+    <div class="progress"><div id="progressBar"></div></div>
+  </div>
 
-<section id="map" class="screen map-screen">
+  <div class="worlds">
+    <button class="worldCard" onclick="openWorld('learn')">
+      <div class="icon">🌿</div>
+      <h3>Learn & Explore</h3>
+      <p>Wudu, Salah, Sunnah and Islamic knowledge.</p>
+    </button>
 
-<div class="header">
-<div class="logo">ISLAMIC BLOOM</div>
-<div class="header-pill" id="topStars">⭐ 0 / 8</div>
-</div>
+    <button class="worldCard" onclick="openWorld('match')">
+      <div class="icon">🧩</div>
+      <h3>Match & Play</h3>
+      <p>Matching, memory games and sequencing.</p>
+    </button>
 
-<div class="map-content">
+    <button class="worldCard" onclick="openWorld('trace')">
+      <div class="icon">✏️</div>
+      <h3>Trace & Create</h3>
+      <p>Trace Arabic letters with your finger or pencil.</p>
+    </button>
 
-<div class="hello-small">AS-SALĀMU ʿALAYKUM</div>
-
-<div class="map-title" id="welcomeName">
-Your Deen Journey
-</div>
-
-<p class="map-desc">
-Follow the garden path. Each adventure teaches you something beautiful
-and unlocks the next part of your journey.
-</p>
-
-<div class="progress-wrap">
-
-<div class="progress">
-<div id="progressBar" class="progress-bar"></div>
-</div>
-
-<div id="progressText" class="star-count">
-0/8
-</div>
-
-</div>
-
-<div id="questMap" class="adventure"></div>
-
-<button class="reset" onclick="resetGame()">
-Restart my journey
-</button>
-
-</div>
+    <button class="worldCard" onclick="openWorld('garden')">
+      <div class="icon">🌷</div>
+      <h3>My Deen Garden</h3>
+      <p>See your badges and watch your garden grow.</p>
+    </button>
+  </div>
 </section>
 
+<!-- WORLD -->
+<section id="worldScreen" class="screen">
+  <div class="header">
+    <button class="secondary" onclick="show('dashboard')">← Home</button>
+    <div class="pill" id="worldStars">⭐</div>
+  </div>
+  <div class="card">
+    <h2 id="worldTitle"></h2>
+    <p id="worldDesc"></p>
+    <div id="activityList"></div>
+  </div>
+</section>
 
-<!-- MISSION -->
+<!-- GAME -->
+<section id="game" class="screen">
+  <div class="header">
+    <button class="secondary" onclick="goBack()">← Back</button>
+    <div class="pill">DEEN QUEST</div>
+  </div>
+  <div class="card" id="gameContent"></div>
+</section>
 
-<section id="mission" class="screen mission-page">
+<!-- TRACE -->
+<section id="traceScreen" class="screen">
+  <div class="header">
+    <button class="secondary" onclick="openWorld('trace')">← Trace</button>
+    <div class="pill" id="traceCount"></div>
+  </div>
 
-<div class="header">
+  <div class="card center">
+    <h2>Trace the Arabic Letter</h2>
+    <p>Follow the pale letter using your finger or Apple Pencil.</p>
 
-<button class="back" onclick="showScreen('map')">
-← Journey
-</button>
+    <div class="traceBox">
+      <div id="traceLetter" class="traceLetter">ا</div>
+      <canvas id="traceCanvas"></canvas>
+    </div>
 
-<div class="header-pill" id="missionNumber">
-Mission
-</div>
+    <div class="controls">
+      <button class="secondary" onclick="clearTrace()">Clear</button>
+      <button class="main" onclick="finishTrace()">I Traced It! ⭐</button>
+    </div>
+  </div>
+</section>
 
-</div>
+<!-- GARDEN -->
+<section id="gardenScreen" class="screen">
+  <div class="header">
+    <button class="secondary" onclick="show('dashboard')">← Home</button>
+    <div class="pill">MY GARDEN</div>
+  </div>
 
-<div class="mission-card">
+  <div class="card">
+    <h2 id="gardenTitle">My Deen Garden</h2>
+    <p>Every activity you complete helps your garden grow. 🌱</p>
+    <div id="garden" class="garden"><div class="gardenSun"></div></div>
 
-<div id="missionIcon" class="mission-world"></div>
-
-<div class="mission-label">
-YOUR DEEN QUEST
-</div>
-
-<h2 id="missionTitle"></h2>
-
-<p id="missionQuestion" class="question"></p>
-
-<div id="answers" class="answers"></div>
-
-<div id="feedback" class="feedback"></div>
-
-</div>
-
+    <h3>My Badges</h3>
+    <div id="badges" class="badges"></div>
+  </div>
 </section>
 
 </div>
-
 
 <script>
+/*
+ IMPORTANT:
+ Every browser/device stores its OWN profiles locally.
+ Customer A cannot see Customer B's saved names or progress.
+ Multiple children using the SAME device can also have separate profiles.
+*/
 
-const missions = [
+const STORAGE_KEY = "islamicBloomDeenQuestProfilesV2";
 
-{
-icon:"💧",
-title:"Wudu Waterfall",
-question:"You're getting ready for salah. Which part of wudu comes first?",
-answers:[
-"Wash your hands",
-"Wash your feet",
-"Wipe your head"
-],
-correct:0,
-badge:"💧",
-message:"Beautiful! You're ready to continue your journey."
-},
-
-{
-icon:"🌅",
-title:"Salah Sunrise",
-question:"The sun is rising and it's time for Fajr. How many fard rakʿahs are there?",
-answers:[
-"2 rakʿahs",
-"3 rakʿahs",
-"4 rakʿahs"
-],
-correct:0,
-badge:"⭐",
-message:"MashaAllah! You earned the Salah Star."
-},
-
-{
-icon:"🌷",
-title:"Kindness Garden",
-question:"Someone drops their things beside you. What would help your kindness garden grow?",
-answers:[
-"Help them pick everything up",
-"Walk away",
-"Laugh at them"
-],
-correct:0,
-badge:"🌷",
-message:"A beautiful deed makes the garden bloom."
-},
-
-{
-icon:"🌙",
-title:"Sunnah Meadow",
-question:"You're about to eat your lunch. What should you remember?",
-answers:[
-"Say Bismillah",
-"Complain about the food",
-"Waste what you don't want"
-],
-correct:0,
-badge:"🌙",
-message:"Wonderful! Another Sunnah discovered."
-},
-
-{
-icon:"📖",
-title:"Qur'an Cove",
-question:"Which surah opens the Qur'an?",
-answers:[
-"Al-Fatihah",
-"Al-Ikhlas",
-"An-Nas"
-],
-correct:0,
-badge:"📖",
-message:"MashaAllah! The Qur'an Cove badge is yours."
-},
-
-{
-icon:"🤲",
-title:"Du'a Valley",
-question:"Which remembrance can you say before eating?",
-answers:[
-"Bismillah",
-"Good morning",
-"Nothing"
-],
-correct:0,
-badge:"🤲",
-message:"Your Du'a Valley is glowing!"
-},
-
-{
-icon:"🌱",
-title:"Character Grove",
-question:"You accidentally break something at home. What should you do?",
-answers:[
-"Tell the truth and apologise",
-"Hide it",
-"Blame somebody else"
-],
-correct:0,
-badge:"🌱",
-message:"Beautiful character makes your Deen garden grow."
-},
-
-{
-icon:"🕌",
-title:"The Masjid Gate",
-question:"You've arrived at the masjid. Which shows beautiful masjid manners?",
-answers:[
-"Walk calmly and speak softly",
-"Run through the prayer rows",
-"Shout to your friend"
-],
-correct:0,
-badge:"🕌",
-message:"MashaAllah! You reached the Masjid Gate."
-}
-
-];
-
-
-let saved =
-JSON.parse(localStorage.getItem("islamicBloomQuest")) ||
-{
-name:"",
-completed:[]
+let data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+  profiles:{},
+  active:null
 };
 
+let currentWorld = null;
+let traceIndex = 0;
+
+const arabicLetters = ["ا","ب","ت","ث","ج","ح","خ","د"];
+
+const activities = {
+  learn:[
+    {id:"wudu",icon:"💧",name:"Wudu Waterfall",desc:"Put the Wudu steps in order."},
+    {id:"salah",icon:"🕌",name:"Salah Sunrise",desc:"Test your prayer knowledge."},
+    {id:"sunnah",icon:"🌙",name:"Sunnah Meadow",desc:"Choose the beautiful Sunnah."},
+    {id:"character",icon:"🌱",name:"Character Grove",desc:"Grow beautiful Islamic character."}
+  ],
+  match:[
+    {id:"prayermatch",icon:"⭐",name:"Prayer Match",desc:"Match each prayer with its fard rakʿahs."},
+    {id:"memory",icon:"🧠",name:"Deen Memory",desc:"Find all the matching pairs."},
+    {id:"places",icon:"🧩",name:"What Goes Together?",desc:"Match Islamic items and activities."}
+  ],
+  trace:[
+    {id:"arabictrace",icon:"✏️",name:"Arabic Letter Trail",desc:"Trace Arabic letters with your finger or Apple Pencil."}
+  ]
+};
 
 function save(){
-localStorage.setItem(
-"islamicBloomQuest",
-JSON.stringify(saved)
-);
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
 }
 
+function show(id){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  window.scrollTo(0,0);
 
-function showScreen(id){
-
-document
-.querySelectorAll(".screen")
-.forEach(screen=>{
-screen.classList.remove("active");
-});
-
-document
-.getElementById(id)
-.classList.add("active");
-
-if(id==="map"){
-renderMap();
+  if(id==="dashboard") renderDashboard();
 }
 
-window.scrollTo(0,0);
-
+function profile(){
+  return data.profiles[data.active];
 }
 
+function createProfile(){
+  const input=document.getElementById("newName");
+  const name=input.value.trim();
 
-function startQuest(){
+  if(!name){
+    input.focus();
+    return;
+  }
 
-const input =
-document
-.getElementById("playerName")
-.value
-.trim();
+  const id="child_"+Date.now()+"_"+Math.random().toString(36).slice(2);
 
-if(!input){
+  data.profiles[id]={
+    name:name,
+    stars:0,
+    completed:[],
+    badges:[],
+    traced:[]
+  };
 
-document
-.getElementById("playerName")
-.focus();
-
-return;
-
+  data.active=id;
+  save();
+  input.value="";
+  show("dashboard");
 }
 
-saved.name=input;
+function renderProfiles(){
+  const box=document.getElementById("profiles");
+  box.innerHTML="";
 
-save();
-
-showScreen("map");
-
+  Object.entries(data.profiles).forEach(([id,p])=>{
+    const b=document.createElement("button");
+    b.className="activity";
+    b.innerHTML=`
+      <div class="ico">🌷</div>
+      <div>
+        <strong>${escapeHTML(p.name)}</strong>
+        <small>⭐ ${p.stars} stars • ${p.completed.length} activities</small>
+      </div>
+    `;
+    b.onclick=()=>{
+      data.active=id;
+      save();
+      show("dashboard");
+    };
+    box.appendChild(b);
+  });
 }
 
-
-function renderMap(){
-
-document.getElementById("welcomeName").textContent =
-(saved.name || "Explorer") + "'s Deen Journey";
-
-document.getElementById("topStars").textContent =
-"⭐ " + saved.completed.length + " / 8";
-
-document.getElementById("progressText").textContent =
-saved.completed.length + "/8";
-
-document.getElementById("progressBar").style.width =
-(saved.completed.length / missions.length * 100) + "%";
-
-
-let html="";
-
-
-missions.forEach((mission,index)=>{
-
-const done =
-saved.completed.includes(index);
-
-const unlocked =
-index===0 ||
-saved.completed.includes(index-1) ||
-done;
-
-
-html += `
-
-<div
-class="stop ${unlocked ? "" : "locked"}"
-${unlocked ? `onclick="openMission(${index})"` : ""}>
-
-<div class="stop-icon">
-${done ? mission.badge : mission.icon}
-</div>
-
-<small>
-${done ? "BADGE COLLECTED" : "MISSION " + (index+1)}
-</small>
-
-<h3>${mission.title}</h3>
-
-<p>
-${
-done
-? "MashaAllah! You've completed this adventure."
-: unlocked
-? "Tap to explore this part of your Deen journey."
-: "Complete the previous adventure to unlock."
-}
-</p>
-
-<div class="complete">
-${done ? "★ COMPLETE" : unlocked ? "☆ READY" : "🔒 LOCKED"}
-</div>
-
-</div>
-
-`;
-
-});
-
-
-document.getElementById("questMap").innerHTML=html;
-
+function switchProfile(){
+  data.active=null;
+  save();
+  renderProfiles();
+  show("home");
 }
 
+function renderDashboard(){
+  const p=profile();
+  if(!p){
+    renderProfiles();
+    show("home");
+    return;
+  }
 
-function openMission(index){
+  document.getElementById("hello").textContent=p.name+"'s Deen Journey";
+  document.getElementById("stars").textContent="⭐ "+p.stars;
 
-const mission=missions[index];
-
-showScreen("mission");
-
-document.getElementById("missionNumber").textContent =
-"Mission " + (index+1) + " of 8";
-
-document.getElementById("missionIcon").textContent =
-mission.icon;
-
-document.getElementById("missionTitle").textContent =
-mission.title;
-
-document.getElementById("missionQuestion").textContent =
-mission.question;
-
-document.getElementById("feedback").innerHTML="";
-
-
-let answers="";
-
-
-mission.answers.forEach((answer,i)=>{
-
-answers += `
-
-<button
-class="answer"
-onclick="checkAnswer(${index},${i},this)">
-${answer}
-</button>
-
-`;
-
-});
-
-
-document.getElementById("answers").innerHTML=answers;
-
+  const total=activities.learn.length+activities.match.length+activities.trace.length;
+  const percent=Math.min(100,(p.completed.length/total)*100);
+  document.getElementById("progressBar").style.width=percent+"%";
 }
 
+function openWorld(type){
+  currentWorld=type;
 
-function checkAnswer(missionIndex,answerIndex,button){
+  if(type==="garden"){
+    renderGarden();
+    show("gardenScreen");
+    return;
+  }
 
-const mission=missions[missionIndex];
+  const titles={
+    learn:"🌿 Learn & Explore",
+    match:"🧩 Match & Play",
+    trace:"✏️ Trace & Create"
+  };
 
-document
-.querySelectorAll(".answer")
-.forEach(btn=>btn.disabled=true);
+  const descriptions={
+    learn:"Complete little missions and grow your Islamic knowledge.",
+    match:"Play matching, memory and sequencing games.",
+    trace:"Practise Arabic letters directly on the screen."
+  };
 
+  document.getElementById("worldTitle").textContent=titles[type];
+  document.getElementById("worldDesc").textContent=descriptions[type];
+  document.getElementById("worldStars").textContent="⭐ "+profile().stars;
 
-if(answerIndex===mission.correct){
+  const list=document.getElementById("activityList");
+  list.innerHTML="";
 
-button.classList.add("correct");
+  activities[type].forEach(a=>{
+    const done=profile().completed.includes(a.id);
 
+    const btn=document.createElement("button");
+    btn.className="activity";
+    btn.innerHTML=`
+      <div class="ico">${a.icon}</div>
+      <div>
+        <strong>${a.name} ${done?"✓":""}</strong>
+        <small>${a.desc}</small>
+      </div>
+    `;
+    btn.onclick=()=>launchActivity(a.id);
+    list.appendChild(btn);
+  });
 
-if(!saved.completed.includes(missionIndex)){
-
-saved.completed.push(missionIndex);
-
-saved.completed.sort((a,b)=>a-b);
-
-save();
-
+  show("worldScreen");
 }
 
+function launchActivity(id){
+  if(id==="arabictrace"){
+    traceIndex=0;
+    showTrace();
+    return;
+  }
 
-document.getElementById("feedback").innerHTML = `
+  if(id==="wudu") wuduGame();
+  if(id==="salah") quiz(
+    "🕌 Salah Sunrise",
+    "How many fard rakʿahs are in Maghrib?",
+    ["2","3","4"],
+    1,
+    "salah",
+    "⭐"
+  );
 
-<div class="badge">
-${mission.badge}
-</div>
+  if(id==="sunnah") quiz(
+    "🌙 Sunnah Meadow",
+    "You're about to eat. What should you remember to say?",
+    ["Bismillah","Nothing","Only say it afterwards"],
+    0,
+    "sunnah",
+    "🌙"
+  );
 
-<div>
-${mission.message}
-</div>
+  if(id==="character") quiz(
+    "🌱 Character Grove",
+    "You accidentally break something. What is the best thing to do?",
+    ["Hide it","Tell the truth and apologise","Blame somebody else"],
+    1,
+    "character",
+    "🌱"
+  );
 
-<button
-class="main-btn"
-onclick="showScreen('map')">
-
-${missionIndex===7
-? "See My Completed Journey ✨"
-: "Continue My Journey →"}
-
-</button>
-
-`;
-
-celebrate();
-
+  if(id==="prayermatch") prayerMatching();
+  if(id==="memory") memoryGame();
+  if(id==="places") itemMatching();
 }
 
-else{
+function quiz(title,q,answers,correct,id,badge){
+  show("game");
 
-button.classList.add("wrong");
+  document.getElementById("gameContent").innerHTML=`
+    <div class="center">
+      <h2>${title}</h2>
+      <p>${q}</p>
+    </div>
+    <div class="answers" id="quizAnswers"></div>
+    <div id="feedback"></div>
+  `;
 
-document.getElementById("feedback").innerHTML = `
+  const area=document.getElementById("quizAnswers");
 
-<p>
-Not quite — have another go 🌿
-</p>
+  answers.forEach((a,i)=>{
+    const btn=document.createElement("button");
+    btn.className="answer";
+    btn.textContent=a;
 
-<button
-class="main-btn"
-onclick="openMission(${missionIndex})">
-Try Again
-</button>
+    btn.onclick=()=>{
+      if(i===correct){
+        btn.classList.add("correct");
+        complete(id,badge);
+        document.getElementById("feedback").innerHTML=
+          `<p class="center"><strong>MashaAllah! ⭐ Great job!</strong></p>
+           <button class="main" onclick="openWorld('${currentWorld}')">Continue →</button>`;
+      }else{
+        btn.classList.add("wrong");
+        setTimeout(()=>btn.classList.remove("wrong"),600);
+      }
+    };
 
-`;
-
+    area.appendChild(btn);
+  });
 }
 
+/* WUDU SEQUENCING */
+
+function wuduGame(){
+  show("game");
+
+  const correct=[
+    "Wash hands",
+    "Rinse mouth",
+    "Clean nose",
+    "Wash face",
+    "Wash arms",
+    "Wipe head",
+    "Wash feet"
+  ];
+
+  let shuffled=[...correct].sort(()=>Math.random()-.5);
+  let chosen=[];
+
+  document.getElementById("gameContent").innerHTML=`
+    <div class="center">
+      <h2>💧 Wudu Waterfall</h2>
+      <p>After making your intention, tap the washing steps in order.</p>
+    </div>
+    <div id="chosen" class="notice">Your order will appear here.</div>
+    <div id="wuduButtons" class="answers"></div>
+    <button class="secondary" style="width:100%;margin-top:12px" onclick="wuduGame()">Start Again</button>
+  `;
+
+  const area=document.getElementById("wuduButtons");
+
+  shuffled.forEach(step=>{
+    const b=document.createElement("button");
+    b.className="answer";
+    b.textContent=step;
+
+    b.onclick=()=>{
+      chosen.push(step);
+      b.disabled=true;
+      b.style.opacity=".4";
+
+      document.getElementById("chosen").textContent=chosen.join(" → ");
+
+      if(chosen.length===correct.length){
+        if(JSON.stringify(chosen)===JSON.stringify(correct)){
+          complete("wudu","💧");
+          document.getElementById("chosen").innerHTML="<strong>MashaAllah! You put them in order! ⭐</strong>";
+        }else{
+          document.getElementById("chosen").innerHTML="<strong>Almost! Try the order again 🌿</strong>";
+        }
+      }
+    };
+
+    area.appendChild(b);
+  });
 }
 
+/* MATCHING */
 
-function celebrate(){
-
-const pieces=[
-"✦","⭐","🌿","✧","🌸"
-];
-
-
-for(let i=0;i<28;i++){
-
-const item=document.createElement("div");
-
-item.className="spark";
-
-item.textContent=
-pieces[Math.floor(Math.random()*pieces.length)];
-
-item.style.left=
-Math.random()*100+"vw";
-
-item.style.fontSize=
-(13+Math.random()*18)+"px";
-
-document.body.appendChild(item);
-
-
-setTimeout(()=>{
-
-item.style.transform=
-`translateY(${75+Math.random()*30}vh)
-rotate(${Math.random()*600}deg)`;
-
-item.style.opacity="0";
-
-},30);
-
-
-setTimeout(()=>{
-item.remove();
-},1500);
-
+function prayerMatching(){
+  matchingGame(
+    "⭐ Prayer Match",
+    [
+      ["Fajr","2"],
+      ["Dhuhr","4"],
+      ["Asr","4"],
+      ["Maghrib","3"],
+      ["Isha","4"]
+    ],
+    "prayermatch",
+    "⭐"
+  );
 }
 
+function itemMatching(){
+  matchingGame(
+    "🧩 What Goes Together?",
+    [
+      ["🕌 Masjid","Salah"],
+      ["📖 Qur'an","Recitation"],
+      ["🤲 Du'a","Supplication"],
+      ["💧 Wudu","Purification"]
+    ],
+    "places",
+    "🧩"
+  );
 }
 
+function matchingGame(title,pairs,id,badge){
+  show("game");
 
-function resetGame(){
+  let selectedLeft=null;
+  let selectedRight=null;
+  let matched=0;
 
-if(
-confirm(
-"Would you like to restart your Deen Quest?"
-)
-){
+  const left=pairs.map((x,i)=>({text:x[0],i})).sort(()=>Math.random()-.5);
+  const right=pairs.map((x,i)=>({text:x[1],i})).sort(()=>Math.random()-.5);
 
-saved={
-name:"",
-completed:[]
-};
+  document.getElementById("gameContent").innerHTML=`
+    <div class="center">
+      <h2>${title}</h2>
+      <p>Tap one card from each side to make a match.</p>
+    </div>
+    <div class="matchGrid">
+      <div id="leftMatches"></div>
+      <div id="rightMatches"></div>
+    </div>
+    <div id="matchFeedback"></div>
+  `;
 
-save();
+  function build(items,side){
+    const box=document.getElementById(side==="left"?"leftMatches":"rightMatches");
 
-document.getElementById("playerName").value="";
+    items.forEach(item=>{
+      const b=document.createElement("button");
+      b.className="matchItem";
+      b.style.width="100%";
+      b.style.marginBottom="10px";
+      b.textContent=item.text;
+      b.dataset.index=item.i;
 
-showScreen("home");
+      b.onclick=()=>{
+        if(b.classList.contains("matched"))return;
 
+        box.querySelectorAll(".matchItem").forEach(x=>x.classList.remove("selected"));
+        b.classList.add("selected");
+
+        if(side==="left") selectedLeft=b;
+        else selectedRight=b;
+
+        check();
+      };
+
+      box.appendChild(b);
+    });
+  }
+
+  function check(){
+    if(!selectedLeft||!selectedRight)return;
+
+    if(selectedLeft.dataset.index===selectedRight.dataset.index){
+      selectedLeft.classList.add("matched");
+      selectedRight.classList.add("matched");
+      matched++;
+
+      if(matched===pairs.length){
+        complete(id,badge);
+        document.getElementById("matchFeedback").innerHTML=
+          `<p class="center"><strong>MashaAllah! All matched! ⭐</strong></p>`;
+      }
+    }else{
+      const a=selectedLeft,b=selectedRight;
+      setTimeout(()=>{
+        a.classList.remove("selected");
+        b.classList.remove("selected");
+      },500);
+    }
+
+    selectedLeft=null;
+    selectedRight=null;
+  }
+
+  build(left,"left");
+  build(right,"right");
 }
 
+/* MEMORY */
+
+function memoryGame(){
+  show("game");
+
+  const symbols=["🕌","📖","🌙","⭐","🤲","🌷"];
+  const deck=[...symbols,...symbols].sort(()=>Math.random()-.5);
+
+  let first=null;
+  let lock=false;
+  let matches=0;
+
+  document.getElementById("gameContent").innerHTML=`
+    <div class="center">
+      <h2>🧠 Deen Memory</h2>
+      <p>Find all the matching pairs.</p>
+    </div>
+    <div id="memoryGrid" class="memoryGrid"></div>
+    <div id="memoryFeedback"></div>
+  `;
+
+  const grid=document.getElementById("memoryGrid");
+
+  deck.forEach(symbol=>{
+    const b=document.createElement("button");
+    b.className="memory";
+    b.textContent="✦";
+    b.dataset.symbol=symbol;
+
+    b.onclick=()=>{
+      if(lock||b.classList.contains("done")||b===first)return;
+
+      b.textContent=symbol;
+      b.classList.add("open");
+
+      if(!first){
+        first=b;
+        return;
+      }
+
+      if(first.dataset.symbol===b.dataset.symbol){
+        first.classList.add("done");
+        b.classList.add("done");
+        first=null;
+        matches++;
+
+        if(matches===symbols.length){
+          complete("memory","🧠");
+          document.getElementById("memoryFeedback").innerHTML=
+            `<p class="center"><strong>You found every pair! ⭐</strong></p>`;
+        }
+      }else{
+        lock=true;
+        const old=first;
+
+        setTimeout(()=>{
+          old.textContent="✦";
+          b.textContent="✦";
+          old.classList.remove("open");
+          b.classList.remove("open");
+          first=null;
+          lock=false;
+        },700);
+      }
+    };
+
+    grid.appendChild(b);
+  });
 }
 
+/* TRACING */
 
-if(saved.name){
+function showTrace(){
+  show("traceScreen");
 
-showScreen("map");
+  document.getElementById("traceLetter").textContent=arabicLetters[traceIndex];
+  document.getElementById("traceCount").textContent=(traceIndex+1)+" / "+arabicLetters.length;
 
+  setTimeout(setupCanvas,50);
 }
 
+function setupCanvas(){
+  const canvas=document.getElementById("traceCanvas");
+  const box=canvas.parentElement;
+
+  canvas.width=box.clientWidth*devicePixelRatio;
+  canvas.height=box.clientHeight*devicePixelRatio;
+
+  const ctx=canvas.getContext("2d");
+  ctx.scale(devicePixelRatio,devicePixelRatio);
+  ctx.lineWidth=15;
+  ctx.lineCap="round";
+  ctx.lineJoin="round";
+  ctx.strokeStyle="#789573";
+
+  let drawing=false;
+
+  function point(e){
+    const rect=canvas.getBoundingClientRect();
+    const touch=e.touches?e.touches[0]:e;
+    return{
+      x:touch.clientX-rect.left,
+      y:touch.clientY-rect.top
+    };
+  }
+
+  function start(e){
+    e.preventDefault();
+    drawing=true;
+    const p=point(e);
+    ctx.beginPath();
+    ctx.moveTo(p.x,p.y);
+  }
+
+  function move(e){
+    if(!drawing)return;
+    e.preventDefault();
+    const p=point(e);
+    ctx.lineTo(p.x,p.y);
+    ctx.stroke();
+  }
+
+  function end(){
+    drawing=false;
+  }
+
+  canvas.onpointerdown=start;
+  canvas.onpointermove=move;
+  canvas.onpointerup=end;
+  canvas.onpointercancel=end;
+}
+
+function clearTrace(){
+  const canvas=document.getElementById("traceCanvas");
+  canvas.getContext("2d").clearRect(0,0,canvas.width,canvas.height);
+}
+
+function finishTrace(){
+  const p=profile();
+  const letter=arabicLetters[traceIndex];
+
+  if(!p.traced.includes(letter)){
+    p.traced.push(letter);
+    p.stars++;
+  }
+
+  if(traceIndex<arabicLetters.length-1){
+    traceIndex++;
+    save();
+    showTrace();
+  }else{
+    complete("arabictrace","✏️");
+    alert("MashaAllah! You completed the Arabic Letter Trail! ⭐");
+    openWorld("trace");
+  }
+}
+
+/* REWARDS */
+
+function complete(id,badge){
+  const p=profile();
+
+  if(!p.completed.includes(id)){
+    p.completed.push(id);
+    p.stars+=3;
+
+    if(!p.badges.includes(badge)){
+      p.badges.push(badge);
+    }
+
+    save();
+  }
+}
+
+function renderGarden(){
+  const p=profile();
+
+  document.getElementById("gardenTitle").textContent=p.name+"'s Deen Garden";
+
+  const garden=document.getElementById("garden");
+  garden.innerHTML='<div class="gardenSun"></div>';
+
+  const flowers=["🌷","🌸","🌻","🌼","🌱","🌹","🌺"];
+
+  p.completed.forEach((_,i)=>{
+    const f=document.createElement("div");
+    f.className="flower";
+    f.textContent=flowers[i%flowers.length];
+    f.style.left=(8+(i*17)%82)+"%";
+    f.style.bottom=(20+(i%3)*22)+"px";
+    garden.appendChild(f);
+  });
+
+  const badges=document.getElementById("badges");
+  badges.innerHTML="";
+
+  if(!p.badges.length){
+    badges.innerHTML="<p>Complete activities to earn your first badge 🌱</p>";
+  }
+
+  p.badges.forEach(b=>{
+    const el=document.createElement("div");
+    el.className="badge";
+    el.textContent=b;
+    badges.appendChild(el);
+  });
+}
+
+function goBack(){
+  if(currentWorld) openWorld(currentWorld);
+  else show("dashboard");
+}
+
+function escapeHTML(str){
+  return str.replace(/[&<>"']/g,m=>({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#039;"
+  })[m]);
+}
+
+/* START */
+renderProfiles();
+
+if(data.active && data.profiles[data.active]){
+  show("dashboard");
+}
 </script>
-
 </body>
 </html>
