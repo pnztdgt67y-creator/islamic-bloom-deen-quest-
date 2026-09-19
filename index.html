@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Deen Quest | Islamic Bloom</title>
+
+<style>
+:root{
+  --green:#718d6b;
+  --green-dark:#4f684c;
+  --sage:#a9bea2;
+  --light:#edf4e9;
+  --cream:#fffdf7;
+  --gold:#e5c36d;
+  --pink:#f3ddd7;
+  --text:#40513f;
+  --muted:#758273;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:#edf3e9;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+}
+
+button,input{font:inherit}
+
+.app{
+  width:100%;
+  max-width:700px;
+  min-height:100vh;
+  margin:auto;
+  background:var(--cream);
+  overflow:hidden;
+  position:relative;
+}
+
+.screen{display:none;min-height:100vh}
+.screen.active{display:block}
+
+/* HEADER */
+
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 20px;
+  position:relative;
+  z-index:10;
+}
+
+.logo{
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.header-pill{
+  background:#fff;
+  padding:9px 14px;
+  border-radius:100px;
+  box-shadow:0 5px 20px rgba(70,90,65,.10);
+  font-size:13px;
+  font-weight:700;
+}
+
+/* HOME */
+
+.home{
+  background:
+    radial-gradient(circle at 10% 15%,#fff 0 4%,transparent 4.2%),
+    linear-gradient(#fffdf8,#edf5e9);
+}
+
+.hero{
+  text-align:center;
+  padding:10px 25px 0;
+}
+
+.bismillah{
+  color:#839b7d;
+  font-size:14px;
+  letter-spacing:1px;
+  margin-bottom:13px;
+}
+
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:45px;
+  line-height:1.03;
+  margin:0;
+  color:#496047;
+}
+
+.hero h1 span{color:#91aa89}
+
+.hero p{
+  max-width:460px;
+  margin:17px auto;
+  color:#758273;
+  line-height:1.6;
+}
+
+/* ILLUSTRATED WORLD */
+
+.world{
+  height:315px;
+  position:relative;
+  overflow:hidden;
+}
+
+.sun{
+  position:absolute;
+  width:50px;
+  height:50px;
+  background:#f5d77d;
+  border-radius:50%;
+  top:22px;
+  right:55px;
+  box-shadow:0 0 0 12px rgba(245,215,125,.16);
+}
+
+.cloud{
+  position:absolute;
+  background:white;
+  border-radius:100px;
+  height:25px;
+  width:90px;
+}
+
+.cloud:before,.cloud:after{
+  content:"";
+  position:absolute;
+  background:white;
+  border-radius:50%;
+}
+
+.cloud:before{
+  width:38px;height:38px;
+  top:-17px;left:17px;
+}
+
+.cloud:after{
+  width:30px;height:30px;
+  top:-10px;right:13px;
+}
+
+.cloud.one{top:65px;left:30px}
+.cloud.two{top:115px;right:5px;transform:scale(.7)}
+
+.hill-back{
+  position:absolute;
+  height:180px;
+  width:120%;
+  left:-10%;
+  bottom:-45px;
+  background:#dce9d7;
+  border-radius:50% 50% 0 0;
+}
+
+.hill-front{
+  position:absolute;
+  height:135px;
+  width:130%;
+  left:-15%;
+  bottom:-55px;
+  background:#bdd2b5;
+  border-radius:50% 50% 0 0;
+}
+
+.path{
+  position:absolute;
+  bottom:-10px;
+  left:50%;
+  width:130px;
+  height:200px;
+  transform:translateX(-50%);
+  background:#f5e6bf;
+  clip-path:polygon(42% 0,58% 0,95% 100%,5% 100%);
+}
+
+/* MOSQUE */
+
+.mosque{
+  width:185px;
+  height:105px;
+  position:absolute;
+  bottom:76px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#fff;
+  border:4px solid #789573;
+  border-radius:18px 18px 8px 8px;
+  box-shadow:0 15px 25px rgba(70,90,65,.15);
+}
+
+.dome{
+  width:100px;
+  height:53px;
+  background:#a9bea2;
+  border:4px solid #789573;
+  border-bottom:0;
+  border-radius:100px 100px 0 0;
+  position:absolute;
+  left:39px;
+  top:-50px;
+}
+
+.crescent{
+  position:absolute;
+  top:-80px;
+  left:80px;
+  font-size:28px;
+  color:#d5b45e;
+}
+
+.minaret{
+  width:24px;
+  height:115px;
+  background:#fff;
+  border:4px solid #789573;
+  position:absolute;
+  bottom:0;
+  border-radius:10px;
+}
+
+.minaret.left{left:-34px}
+.minaret.right{right:-34px}
+
+.door{
+  position:absolute;
+  bottom:0;
+  left:70px;
+  width:40px;
+  height:58px;
+  background:#d9bd78;
+  border-radius:25px 25px 0 0;
+}
+
+.window{
+  position:absolute;
+  width:23px;height:32px;
+  background:#dce9d7;
+  border-radius:20px 20px 5px 5px;
+  top:35px;
+}
+
+.w1{left:20px}
+.w2{right:20px}
+
+/* TREES */
+
+.tree{
+  position:absolute;
+  bottom:55px;
+}
+
+.tree .trunk{
+  width:13px;
+  height:50px;
+  background:#b89268;
+  margin:auto;
+  border-radius:5px;
+}
+
+.tree .leaves{
+  width:70px;
+  height:75px;
+  background:#88a982;
+  border-radius:50%;
+  margin-bottom:-20px;
+  box-shadow:
+    -20px 12px 0 #9bb795,
+    20px 10px 0 #769b71;
+}
+
+.tree.left{left:40px}
+.tree.right{right:30px;transform:scale(.8)}
+
+/* START */
+
+.start-box{
+  background:white;
+  margin:-5px 20px 35px;
+  padding:22px;
+  border-radius:27px;
+  position:relative;
+  z-index:5;
+  box-shadow:0 15px 45px rgba(80,105,75,.12);
+}
+
+.start-box h3{
+  margin:0 0 7px;
+  font-family:Georgia,serif;
+  font-size:21px;
+}
+
+.start-box p{
+  margin:0 0 14px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+input{
+  width:100%;
+  border:2px solid #dce8d8;
+  background:#fbfdf9;
+  border-radius:17px;
+  padding:15px;
+  outline:none;
+}
+
+input:focus{border-color:var(--green)}
+
+.main-btn{
+  width:100%;
+  border:0;
+  padding:15px;
+  border-radius:17px;
+  margin-top:12px;
+  background:var(--green);
+  color:white;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 6px 0 #536f50;
+}
+
+.main-btn:active{
+  transform:translateY(3px);
+  box-shadow:0 3px 0 #536f50;
+}
+
+/* MAP */
+
+.map-screen{
+  background:linear-gradient(#fffdf7,#eef5ea);
+}
+
+.map-content{
+  padding:5px 20px 60px;
+}
+
+.hello-small{
+  font-size:11px;
+  letter-spacing:2px;
+  font-weight:800;
+  color:#8ba185;
+}
+
+.map-title{
+  font-family:Georgia,serif;
+  font-size:34px;
+  margin:6px 0;
+}
+
+.map-desc{
+  color:#71806f;
+  line-height:1.5;
+}
+
+.progress-wrap{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin:20px 0 28px;
+}
+
+.progress{
+  flex:1;
+  height:11px;
+  border-radius:100px;
+  background:#dae6d6;
+  overflow:hidden;
+}
+
+.progress-bar{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,#769772,#d9bd6b);
+  transition:.4s;
+}
+
+.star-count{
+  font-size:13px;
+  font-weight:800;
+}
+
+/* ADVENTURE MAP */
+
+.adventure{
+  position:relative;
+  padding:10px 0 50px;
+}
+
+.adventure:before{
+  content:"";
+  position:absolute;
+  width:9px;
+  top:15px;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#d7e4d2;
+  border-radius:30px;
+}
+
+.stop{
+  width:83%;
+  min-height:125px;
+  position:relative;
+  background:#fff;
+  border-radius:27px;
+  padding:19px 18px 18px 90px;
+  margin-bottom:28px;
+  box-shadow:0 12px 35px rgba(80,100,74,.10);
+  border:1px solid #e1eadf;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.stop:nth-child(even){margin-left:17%}
+
+.stop:hover{transform:translateY(-3px)}
+
+.stop.locked{
+  opacity:.48;
+  filter:grayscale(.5);
+}
+
+.stop-icon{
+  width:60px;
+  height:60px;
+  border-radius:19px;
+  position:absolute;
+  left:16px;
+  top:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#edf4e9;
+  font-size:31px;
+  border:2px solid #d5e4d1;
+}
+
+.stop small{
+  color:#91a28e;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.stop h3{
+  margin:4px 0 6px;
+  font-family:Georgia,serif;
+  font-size:21px;
+}
+
+.stop p{
+  margin:0;
+  font-size:13px;
+  color:#71806f;
+  line-height:1.4;
+}
+
+.complete{
+  color:#c4a64f;
+  margin-top:8px;
+  font-size:13px;
+  font-weight:800;
+}
+
+/* MISSION */
+
+.mission-page{
+  min-height:100vh;
+  background:linear-gradient(#edf5e9,#fffdf8);
+  padding-bottom:40px;
+}
+
+.back{
+  border:0;
+  background:white;
+  padding:10px 14px;
+  border-radius:14px;
+  box-shadow:0 5px 18px rgba(80,100,75,.12);
+  color:#536a51;
+}
+
+.mission-card{
+  margin:12px 20px;
+  padding:25px 21px;
+  background:white;
+  border-radius:30px;
+  text-align:center;
+  box-shadow:0 18px 45px rgba(75,100,70,.12);
+}
+
+.mission-world{
+  width:145px;
+  height:145px;
+  border-radius:50%;
+  background:#edf5e9;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:70px;
+  margin:5px auto 17px;
+  border:7px solid #f8fbf6;
+  box-shadow:0 10px 30px rgba(80,100,75,.12);
+}
+
+.mission-label{
+  font-size:11px;
+  color:#8ba085;
+  letter-spacing:2px;
+  font-weight:900;
+}
+
+.mission-card h2{
+  font-family:Georgia,serif;
+  font-size:30px;
+  margin:7px 0;
+}
+
+.question{
+  color:#687867;
+  line-height:1.5;
+}
+
+.answers{
+  display:grid;
+  gap:11px;
+  margin-top:20px;
+}
+
+.answer{
+  border:2px solid #e1eadf;
+  border-radius:18px;
+  background:#fbf9f5;
+  padding:15px;
+  text-align:left;
+  font-weight:700;
+  color:#50634e;
+}
+
+.answer.correct{
+  background:#e4f3df;
+  border-color:#7da874;
+}
+
+.answer.wrong{
+  background:#f9e4e1;
+  border-color:#d8988f;
+}
+
+.feedback{
+  margin-top:16px;
+  font-weight:800;
+}
+
+/* BADGE */
+
+.badge{
+  width:110px;
+  height:110px;
+  margin:15px auto;
+  background:linear-gradient(145deg,#f6dd91,#d5b55d);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:52px;
+  border:7px solid #fff8df;
+  box-shadow:0 10px 25px rgba(160,125,40,.25);
+  animation:badge .5s ease;
+}
+
+@keyframes badge{
+  0%{transform:scale(.3) rotate(-20deg)}
+  70%{transform:scale(1.15) rotate(8deg)}
+  100%{transform:scale(1)}
+}
+
+.spark{
+  position:fixed;
+  top:-20px;
+  z-index:999;
+  pointer-events:none;
+  transition:1.4s ease;
+}
+
+.reset{
+  border:0;
+  background:none;
+  text-decoration:underline;
+  color:#82917f;
+  display:block;
+  margin:auto;
+  padding:15px;
+}
+
+@media(max-width:500px){
+  .hero h1{font-size:39px}
+  .world{height:285px}
+  .mosque{transform:translateX(-50%) scale(.88)}
+  .tree.left{left:15px}
+  .tree.right{right:8px}
+  .stop{width:89%;padding-left:82px}
+  .stop:nth-child(even){margin-left:11%}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- HOME -->
+
+<section id="home" class="screen active home">
+
+<div class="header">
+  <div class="logo">ISLAMIC BLOOM</div>
+  <div class="header-pill">🌿 DEEN QUEST</div>
+</div>
+
+<div class="hero">
+
+<div class="bismillah">بِسْمِ ٱللَّٰهِ</div>
+
+<h1>
+A Little Journey<br>
+<span>Through Your Deen</span>
+</h1>
+
+<p>
+Travel through a peaceful Islamic world, complete little missions,
+collect badges and watch your Deen Garden grow.
+</p>
+
+<div class="world">
+
+<div class="sun"></div>
+<div class="cloud one"></div>
+<div class="cloud two"></div>
+
+<div class="hill-back"></div>
+<div class="hill-front"></div>
+<div class="path"></div>
+
+<div class="tree left">
+  <div class="leaves"></div>
+  <div class="trunk"></div>
+</div>
+
+<div class="tree right">
+  <div class="leaves"></div>
+  <div class="trunk"></div>
+</div>
+
+<div class="mosque">
+  <div class="crescent">☾</div>
+  <div class="dome"></div>
+  <div class="minaret left"></div>
+  <div class="minaret right"></div>
+  <div class="window w1"></div>
+  <div class="window w2"></div>
+  <div class="door"></div>
+</div>
+
+</div>
+</div>
+
+<div class="start-box">
+
+<h3>Welcome, little explorer 🌿</h3>
+
+<p>
+Create your Deen Passport and begin your adventure.
+</p>
+
+<input
+id="playerName"
+placeholder="What's your first name?"
+autocomplete="off">
+
+<button class="main-btn" onclick="startQuest()">
+Bismillah — Begin My Journey ✨
+</button>
+
+</div>
+
+</section>
+
+
+<!-- MAP -->
+
+<section id="map" class="screen map-screen">
+
+<div class="header">
+<div class="logo">ISLAMIC BLOOM</div>
+<div class="header-pill" id="topStars">⭐ 0 / 8</div>
+</div>
+
+<div class="map-content">
+
+<div class="hello-small">AS-SALĀMU ʿALAYKUM</div>
+
+<div class="map-title" id="welcomeName">
+Your Deen Journey
+</div>
+
+<p class="map-desc">
+Follow the garden path. Each adventure teaches you something beautiful
+and unlocks the next part of your journey.
+</p>
+
+<div class="progress-wrap">
+
+<div class="progress">
+<div id="progressBar" class="progress-bar"></div>
+</div>
+
+<div id="progressText" class="star-count">
+0/8
+</div>
+
+</div>
+
+<div id="questMap" class="adventure"></div>
+
+<button class="reset" onclick="resetGame()">
+Restart my journey
+</button>
+
+</div>
+</section>
+
+
+<!-- MISSION -->
+
+<section id="mission" class="screen mission-page">
+
+<div class="header">
+
+<button class="back" onclick="showScreen('map')">
+← Journey
+</button>
+
+<div class="header-pill" id="missionNumber">
+Mission
+</div>
+
+</div>
+
+<div class="mission-card">
+
+<div id="missionIcon" class="mission-world"></div>
+
+<div class="mission-label">
+YOUR DEEN QUEST
+</div>
+
+<h2 id="missionTitle"></h2>
+
+<p id="missionQuestion" class="question"></p>
+
+<div id="answers" class="answers"></div>
+
+<div id="feedback" class="feedback"></div>
+
+</div>
+
+</section>
+
+</div>
+
+
+<script>
+
+const missions = [
+
+{
+icon:"💧",
+title:"Wudu Waterfall",
+question:"You're getting ready for salah. Which part of wudu comes first?",
+answers:[
+"Wash your hands",
+"Wash your feet",
+"Wipe your head"
+],
+correct:0,
+badge:"💧",
+message:"Beautiful! You're ready to continue your journey."
+},
+
+{
+icon:"🌅",
+title:"Salah Sunrise",
+question:"The sun is rising and it's time for Fajr. How many fard rakʿahs are there?",
+answers:[
+"2 rakʿahs",
+"3 rakʿahs",
+"4 rakʿahs"
+],
+correct:0,
+badge:"⭐",
+message:"MashaAllah! You earned the Salah Star."
+},
+
+{
+icon:"🌷",
+title:"Kindness Garden",
+question:"Someone drops their things beside you. What would help your kindness garden grow?",
+answers:[
+"Help them pick everything up",
+"Walk away",
+"Laugh at them"
+],
+correct:0,
+badge:"🌷",
+message:"A beautiful deed makes the garden bloom."
+},
+
+{
+icon:"🌙",
+title:"Sunnah Meadow",
+question:"You're about to eat your lunch. What should you remember?",
+answers:[
+"Say Bismillah",
+"Complain about the food",
+"Waste what you don't want"
+],
+correct:0,
+badge:"🌙",
+message:"Wonderful! Another Sunnah discovered."
+},
+
+{
+icon:"📖",
+title:"Qur'an Cove",
+question:"Which surah opens the Qur'an?",
+answers:[
+"Al-Fatihah",
+"Al-Ikhlas",
+"An-Nas"
+],
+correct:0,
+badge:"📖",
+message:"MashaAllah! The Qur'an Cove badge is yours."
+},
+
+{
+icon:"🤲",
+title:"Du'a Valley",
+question:"Which remembrance can you say before eating?",
+answers:[
+"Bismillah",
+"Good morning",
+"Nothing"
+],
+correct:0,
+badge:"🤲",
+message:"Your Du'a Valley is glowing!"
+},
+
+{
+icon:"🌱",
+title:"Character Grove",
+question:"You accidentally break something at home. What should you do?",
+answers:[
+"Tell the truth and apologise",
+"Hide it",
+"Blame somebody else"
+],
+correct:0,
+badge:"🌱",
+message:"Beautiful character makes your Deen garden grow."
+},
+
+{
+icon:"🕌",
+title:"The Masjid Gate",
+question:"You've arrived at the masjid. Which shows beautiful masjid manners?",
+answers:[
+"Walk calmly and speak softly",
+"Run through the prayer rows",
+"Shout to your friend"
+],
+correct:0,
+badge:"🕌",
+message:"MashaAllah! You reached the Masjid Gate."
+}
+
+];
+
+
+let saved =
+JSON.parse(localStorage.getItem("islamicBloomQuest")) ||
+{
+name:"",
+completed:[]
+};
+
+
+function save(){
+localStorage.setItem(
+"islamicBloomQuest",
+JSON.stringify(saved)
+);
+}
+
+
+function showScreen(id){
+
+document
+.querySelectorAll(".screen")
+.forEach(screen=>{
+screen.classList.remove("active");
+});
+
+document
+.getElementById(id)
+.classList.add("active");
+
+if(id==="map"){
+renderMap();
+}
+
+window.scrollTo(0,0);
+
+}
+
+
+function startQuest(){
+
+const input =
+document
+.getElementById("playerName")
+.value
+.trim();
+
+if(!input){
+
+document
+.getElementById("playerName")
+.focus();
+
+return;
+
+}
+
+saved.name=input;
+
+save();
+
+showScreen("map");
+
+}
+
+
+function renderMap(){
+
+document.getElementById("welcomeName").textContent =
+(saved.name || "Explorer") + "'s Deen Journey";
+
+document.getElementById("topStars").textContent =
+"⭐ " + saved.completed.length + " / 8";
+
+document.getElementById("progressText").textContent =
+saved.completed.length + "/8";
+
+document.getElementById("progressBar").style.width =
+(saved.completed.length / missions.length * 100) + "%";
+
+
+let html="";
+
+
+missions.forEach((mission,index)=>{
+
+const done =
+saved.completed.includes(index);
+
+const unlocked =
+index===0 ||
+saved.completed.includes(index-1) ||
+done;
+
+
+html += `
+
+<div
+class="stop ${unlocked ? "" : "locked"}"
+${unlocked ? `onclick="openMission(${index})"` : ""}>
+
+<div class="stop-icon">
+${done ? mission.badge : mission.icon}
+</div>
+
+<small>
+${done ? "BADGE COLLECTED" : "MISSION " + (index+1)}
+</small>
+
+<h3>${mission.title}</h3>
+
+<p>
+${
+done
+? "MashaAllah! You've completed this adventure."
+: unlocked
+? "Tap to explore this part of your Deen journey."
+: "Complete the previous adventure to unlock."
+}
+</p>
+
+<div class="complete">
+${done ? "★ COMPLETE" : unlocked ? "☆ READY" : "🔒 LOCKED"}
+</div>
+
+</div>
+
+`;
+
+});
+
+
+document.getElementById("questMap").innerHTML=html;
+
+}
+
+
+function openMission(index){
+
+const mission=missions[index];
+
+showScreen("mission");
+
+document.getElementById("missionNumber").textContent =
+"Mission " + (index+1) + " of 8";
+
+document.getElementById("missionIcon").textContent =
+mission.icon;
+
+document.getElementById("missionTitle").textContent =
+mission.title;
+
+document.getElementById("missionQuestion").textContent =
+mission.question;
+
+document.getElementById("feedback").innerHTML="";
+
+
+let answers="";
+
+
+mission.answers.forEach((answer,i)=>{
+
+answers += `
+
+<button
+class="answer"
+onclick="checkAnswer(${index},${i},this)">
+${answer}
+</button>
+
+`;
+
+});
+
+
+document.getElementById("answers").innerHTML=answers;
+
+}
+
+
+function checkAnswer(missionIndex,answerIndex,button){
+
+const mission=missions[missionIndex];
+
+document
+.querySelectorAll(".answer")
+.forEach(btn=>btn.disabled=true);
+
+
+if(answerIndex===mission.correct){
+
+button.classList.add("correct");
+
+
+if(!saved.completed.includes(missionIndex)){
+
+saved.completed.push(missionIndex);
+
+saved.completed.sort((a,b)=>a-b);
+
+save();
+
+}
+
+
+document.getElementById("feedback").innerHTML = `
+
+<div class="badge">
+${mission.badge}
+</div>
+
+<div>
+${mission.message}
+</div>
+
+<button
+class="main-btn"
+onclick="showScreen('map')">
+
+${missionIndex===7
+? "See My Completed Journey ✨"
+: "Continue My Journey →"}
+
+</button>
+
+`;
+
+celebrate();
+
+}
+
+else{
+
+button.classList.add("wrong");
+
+document.getElementById("feedback").innerHTML = `
+
+<p>
+Not quite — have another go 🌿
+</p>
+
+<button
+class="main-btn"
+onclick="openMission(${missionIndex})">
+Try Again
+</button>
+
+`;
+
+}
+
+}
+
+
+function celebrate(){
+
+const pieces=[
+"✦","⭐","🌿","✧","🌸"
+];
+
+
+for(let i=0;i<28;i++){
+
+const item=document.createElement("div");
+
+item.className="spark";
+
+item.textContent=
+pieces[Math.floor(Math.random()*pieces.length)];
+
+item.style.left=
+Math.random()*100+"vw";
+
+item.style.fontSize=
+(13+Math.random()*18)+"px";
+
+document.body.appendChild(item);
+
+
+setTimeout(()=>{
+
+item.style.transform=
+`translateY(${75+Math.random()*30}vh)
+rotate(${Math.random()*600}deg)`;
+
+item.style.opacity="0";
+
+},30);
+
+
+setTimeout(()=>{
+item.remove();
+},1500);
+
+}
+
+}
+
+
+function resetGame(){
+
+if(
+confirm(
+"Would you like to restart your Deen Quest?"
+)
+){
+
+saved={
+name:"",
+completed:[]
+};
+
+save();
+
+document.getElementById("playerName").value="";
+
+showScreen("home");
+
+}
+
+}
+
+
+if(saved.name){
+
+showScreen("map");
+
+}
+
+</script>
+
+</body>
+</html>
