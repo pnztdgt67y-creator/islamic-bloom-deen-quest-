@@ -108,13 +108,61 @@ canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}.toolb
 .minaret-cap:after{content:"";position:absolute;width:4px;height:12px;background:#d3b45f;left:13px;top:-12px;border-radius:4px}
 .minaret-crescent{left:5px;top:-49px;width:11px;height:11px}
 
+
+/* ===== V11 FULL AUDIT FIXES ===== */
+.arabic-safe,.traceLetter,.arabic-choice{font-family:"Geeza Pro","Noto Naskh Arabic","Arial",serif!important;direction:rtl!important;unicode-bidi:isolate!important}
+.hero .arabic-safe{font-size:28px!important;line-height:1.8!important;min-height:48px}
+.activity .ico{font-size:10px!important;letter-spacing:.5px!important;text-align:center!important;overflow:hidden!important}
+.activity .ico .star-shape{width:25px;height:25px}
+.badgeGrid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important}
+.badgeGrid .badge{width:auto!important;height:105px!important;min-width:0!important;border-radius:24px!important;padding:10px 5px!important;font-size:0!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:8px!important;overflow:hidden!important}
+.badgeGrid .badge .badgeSymbol{font-size:28px!important;line-height:1!important;color:#6f8d69!important}
+.badgeGrid .badge .badgeText{font-size:10px!important;line-height:1.1!important;letter-spacing:.4px!important;text-align:center!important;color:#526b50!important;font-weight:900!important;white-space:normal!important}
+.badgeGrid .badge.locked{opacity:.28!important}
+#passLevel{display:flex!important;align-items:center!important;gap:7px!important;flex-wrap:wrap!important}
+#passLevel .star-shape{width:16px;height:16px;flex:none}
+
+/* real colouring-page outlines */
+.colour-page{position:relative!important;height:500px!important;background:#fff!important;overflow:hidden!important}
+.colour-page .paintGuide{position:absolute!important;inset:0!important;z-index:1!important;display:block!important;width:100%!important;height:100%!important;font-size:0!important;color:transparent!important}
+.colour-page .paintGuide svg{width:100%!important;height:100%!important;display:block!important}
+.colour-page #paintCanvas{position:absolute!important;inset:0!important;z-index:2!important;background:transparent!important}
+
+/* friendlier maze */
+.maze{display:grid!important;grid-template-columns:repeat(6,1fr)!important;gap:5px!important;padding:8px!important;border:2px solid #dce7d8!important;border-radius:22px!important;background:#f8fbf6!important}
+.maze .cell{aspect-ratio:1!important;border-radius:11px!important;border:1px solid #e0e9dc!important;background:#f4f8f1!important;display:flex!important;align-items:center!important;justify-content:center!important}
+.maze .cell.wall{background:#c9dbc4!important;border-color:#b7cdb1!important;position:relative!important}
+.maze .cell.wall:after{content:"";width:60%;height:46%;background:#89a683;border-radius:50% 50% 42% 42%;box-shadow:11px 4px 0 -5px #89a683,-11px 4px 0 -5px #89a683}
+.maze .cell.goal{background:#fff6d8!important;border:2px solid #d7bd6d!important}
+.maze .cell.player{background:#fff0b7!important;border:2px solid #d7bd6d!important}
+.mazeMasjid{width:32px;height:23px;border:2px solid #526b50;border-radius:3px;background:#fff;position:relative}
+.mazeMasjid:before{content:"";position:absolute;width:21px;height:12px;left:3px;top:-12px;border:2px solid #526b50;border-bottom:0;border-radius:13px 13px 0 0;background:#a9bea2}
+.mazeMasjid:after{content:"";position:absolute;width:7px;height:10px;left:10px;bottom:0;border:2px solid #526b50;border-bottom:0;border-radius:6px 6px 0 0}
+.maze-controls button{touch-action:manipulation!important}
+
+/* word search */
+.wordBank{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0 18px}
+.wordChip{padding:7px 11px;border-radius:18px;background:#fff3c9;font-size:12px;font-weight:900;color:#526b50}
+.wordChip.done{text-decoration:line-through;opacity:.45}
+.wordGrid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:5px;max-width:430px;margin:0 auto 18px}
+.wordCell{aspect-ratio:1!important;min-width:0!important;padding:0!important;border:1px solid #dce7d8!important;border-radius:9px!important;background:#f7faf5!important;color:#526b50!important;font-size:17px!important;font-weight:900!important}
+.wordCell.pick{background:#fff0b7!important;border-color:#d7bd6d!important}
+.wordCell.found{background:#dcebd7!important;border-color:#8da886!important}
+
+@media(max-width:520px){
+ .hero h1{font-size:36px!important}
+ .colour-page{height:430px!important}
+ .badgeGrid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+ .certificate{margin-left:12px!important;margin-right:12px!important}
+}
+
 </style>
 </head>
 <body>
 <div class="app">
 <section id="home" class="screen active">
  <div class="header"><div class="logo">ISLAMIC BLOOM</div><div class="pill brand-pill"><span class="mini-moon"></span> DEEN QUEST</div></div>
- <div class="hero"><div class="arabic">Ø¨ÙØ³ÙÙÙ Ù±ÙÙÙÙÙ°ÙÙ</div><h1>Play - Learn - <span>Explore</span></h1><p>A playful Islamic activity adventure made for little learners.</p></div>
+ <div class="hero"><div class="arabic arabic-safe" dir="rtl">&#1576;&#1616;&#1587;&#1618;&#1605;&#1616; &#1575;&#1604;&#1604;&#1617;&#1614;&#1607;&#1616;</div><h1>Play - Learn - <span>Explore</span></h1><p>A playful Islamic activity adventure made for little learners.</p></div>
  <div class="scene">
 <div class="cloud cloud1"><i></i><b></b></div>
 <div class="cloud cloud2"><i></i><b></b></div>
@@ -145,9 +193,9 @@ canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}.toolb
 
 <section id="world" class="screen"><div class="header"><button class="ghost" onclick="show('dash')"><- Home</button><div class="pill" id="worldStars"></div></div><div class="card"><h2 id="worldTitle"></h2><p id="worldDesc" class="muted"></p><div id="activityList"></div></div></section>
 <section id="game" class="screen"><div class="header"><button class="ghost" onclick="backWorld()"><- Back</button><div class="pill">DEEN QUEST</div></div><div class="card" id="gameBox"></div></section>
-<section id="trace" class="screen"><div class="header"><button class="ghost" onclick="openWorld('trace')"><- Trace</button><div class="pill" id="traceNo"></div></div><div class="card center"><h2>TRACE Arabic Letter Trail</h2><p class="muted">Trace over the pale letter with your finger or Apple Pencil.</p><div class="traceBox"><div id="traceLetter" class="traceLetter">Ø§</div><canvas id="traceCanvas"></canvas></div><div class="toolbar"><button class="smallbtn" onclick="clearCanvas('traceCanvas')">Clear</button><button class="main" onclick="nextTrace()">Done STAR</button></div></div></section>
-<section id="colour" class="screen"><div class="header"><button class="ghost" onclick="openWorld('colour')"><- Create</button><div class="pill" id="colourNo"></div></div><div class="card center"><h2 id="colourTitle"></h2><p class="muted">Colour freely with your finger or Apple Pencil.</p><div class="drawBox"><div id="paintGuide" class="paintGuide"></div><canvas id="paintCanvas"></canvas></div><div class="toolbar" id="colours"></div><div class="toolbar"><button class="smallbtn" onclick="setEraser()">Eraser</button><button class="smallbtn" onclick="clearCanvas('paintCanvas')">Clear</button><button class="main" onclick="finishColour()">Finished STAR</button></div></div></section>
-<section id="passport" class="screen"><div class="header"><button class="ghost" onclick="show('dash')"><- Home</button><div class="pill">AWARDS PASSPORT</div></div><div class="card"><h2 id="passName"></h2><div id="passLevel" class="level"></div><h3>My badges</h3><div id="badges" class="badgeGrid"></div></div><div class="card certificate" id="certificate"><div class="arabic">&#1605;&#1614;&#1575; &#1588;&#1614;&#1575;&#1569;&#1614; &#1649;&#1604;&#1604;&#1617;&#1614;&#1607;&#1615;</div><h1>Deen Quest Certificate</h1><p>This certificate celebrates</p><h2 id="certName"></h2><p>for learning, playing and growing in Islamic knowledge.</p><strong>Islamic Bloom - Deen Quest</strong></div><div class="card"><button class="main" onclick="window.print()">Print My Certificate</button></div></section>
+<section id="trace" class="screen"><div class="header"><button class="ghost" onclick="openWorld('trace')"><- Trace</button><div class="pill" id="traceNo"></div></div><div class="card center"><h2>Arabic Letter Trail</h2><p class="muted">Trace the Arabic letter with your finger or Apple Pencil.</p><div class="traceBox"><div id="traceLetter" class="traceLetter">Ø§</div><canvas id="traceCanvas"></canvas></div><div class="toolbar"><button class="smallbtn" onclick="clearCanvas('traceCanvas')">Clear</button><button class="main" onclick="nextTrace()">Next Letter</button></div></div></section>
+<section id="colour" class="screen"><div class="header"><button class="ghost" onclick="openWorld('colour')"><- Create</button><div class="pill" id="colourNo"></div></div><div class="card center"><h2 id="colourTitle"></h2><p class="muted">Colour freely with your finger or Apple Pencil.</p><div class="drawBox colour-page"><div id="paintGuide" class="paintGuide"></div><canvas id="paintCanvas"></canvas></div><div class="toolbar" id="colours"></div><div class="toolbar"><button class="smallbtn" onclick="setEraser()">Eraser</button><button class="smallbtn" onclick="clearCanvas('paintCanvas')">Clear</button><button class="main" onclick="finishColour()">Finished</button></div></div></section>
+<section id="passport" class="screen"><div class="header"><button class="ghost" onclick="show('dash')"><- Home</button><div class="pill">MY PASSPORT</div></div><div class="card"><h2 id="passName"></h2><div id="passLevel" class="level"></div><h3>My badges</h3><div id="badges" class="badgeGrid"></div></div><div class="card certificate" id="certificate"><div class="arabic">&#1605;&#1614;&#1575; &#1588;&#1614;&#1575;&#1569;&#1614; &#1649;&#1604;&#1604;&#1617;&#1614;&#1607;&#1615;</div><h1>Deen Quest Certificate</h1><p>This certificate celebrates</p><h2 id="certName"></h2><p>for learning, playing and growing in Islamic knowledge.</p><strong>Islamic Bloom - Deen Quest</strong></div><div class="card"><button class="main" onclick="window.print()">Print My Certificate</button></div></section>
 </div>
 
 <script>
@@ -156,39 +204,39 @@ let db=JSON.parse(localStorage.getItem(KEY)||'{"profiles":{},"active":null}');
 let currentWorld="learn",traceIndex=0,colourIndex=0,paintColor="#819d7a";
 
 const worlds={
- learn:{title:"MOON Learn & Explore",desc:"Little interactive missions about everyday Islamic learning.",items:[
+ learn:{title:"Learn & Explore",desc:"Little interactive missions about everyday Islamic learning.",items:[
   ["wudu","WUDU","Wudu Order","Put the washing steps in order."],["salah","MASJID","Prayer Match","Match each prayer with its fard rak'ahs."],["pillars","PILLARS","Five Pillars","Find all five pillars of Islam."],["iman","IMAN","Six Pillars of Iman","Choose the pillars of faith."],["sunnah","MOON","Sunnah Choices","Choose beautiful everyday actions."],["masjid","MASJID","Masjid Manners","Spot the respectful masjid choices."],["quran","QURAN","Qur'an Explorer","A gentle Qur'an knowledge challenge."],["character","LEAF","Kindness Hero","Choose beautiful character."]
  ]},
- match:{title:"MATCH Match & Play",desc:"Tap, match, remember and sort.",items:[
+ match:{title:"Match & Play",desc:"Tap, match, remember and sort.",items:[
   ["prayerMatch","PRAYER","Prayer Pairs","Match prayer names and rak'ahs."],["deenMemory","MEMORY","Deen Memory","Flip and find the matching pairs."],["itemMatch","MATCH","What Goes Together?","Match items with their purpose."],["arabicMatch","ARABIC","Arabic Letter Match","Match letters with their names."],["duaMatch","DUA","Du'a Situations","Match remembrance with situations."],["goodSort","KIND","Good Choice Sort","Sort kind choices from unkind ones."],["pattern","MOON","Finish the Pattern","Find what comes next."]
  ]},
- trace:{title:"TRACE Trace Arabic",desc:"Practise Arabic letters on screen.",items:[
-  ["traceLetters","TRACE","Arabic Letter Trail","Trace Ø§ through Ù with your finger or Apple Pencil."],["findLetter","SEARCH","Find the Letter","Spot the requested Arabic letter."]
+ trace:{title:"Trace Arabic",desc:"Practise Arabic letters on screen.",items:[
+  ["traceLetters","TRACE","Arabic Letter Trail","Practise all 28 Arabic letters from Alif to Yaa."],["findLetter","SEARCH","Find the Letter","Spot the requested Arabic letter."]
  ]},
- colour:{title:"ART Colour & Create",desc:"Creative screen activities â no paper needed.",items:[
+ colour:{title:"Colour & Create",desc:"Creative screen activities â no paper needed.",items:[
   ["mosqueColour","MASJID","Colour the Mosque","Colour a mosque scene."],["lanternColour","LANTERN","Ramadan Lantern","Create a colourful lantern."],["matColour","PRAYER","Prayer Mat Designer","Decorate a prayer mat."],["moonColour","MOON","Moon & Stars","Colour a peaceful night scene."],["geoColour","STAR","Geometric Art","Make your own colourful pattern."],["freeDraw","DRAW","Free Draw","Create your own picture."]
  ]},
- puzzle:{title:"SEARCH Puzzles & Hunts",desc:"Short challenges for curious little explorers.",items:[
-  ["maze","MAZE","Masjid Maze","Help the star reach the masjid."],["hidden","SEARCH","Hidden Crescent Hunt","Find every crescent."],["odd","SPOT","What Doesn't Belong?","Spot the odd picture."],["quick","QUIZ","Deen Quick-Fire","Answer five speedy questions."],["buildMosque","BUILD","Build a Masjid","Tap the pieces in the right order."]
+ puzzle:{title:"Puzzles & Hunts",desc:"Short challenges for curious little explorers.",items:[
+  ["maze","MAZE","Masjid Maze","Help the star reach the masjid."],["wordSearch","WORDS","Deen Word Search","Find Islamic words hidden in the grid."],["hidden","SEARCH","Hidden Crescent Hunt","Find every crescent."],["odd","SPOT","What Doesn't Belong?","Spot the odd picture."],["quick","QUIZ","Deen Quick-Fire","Answer five speedy questions."],["buildMosque","BUILD","Build a Masjid","Tap the pieces in the right order."]
  ]}
 };
 
 const allActivityIds=Object.values(worlds).flatMap(w=>w.items.map(x=>x[0]));
-const badges={wudu:"WUDU",salah:"MASJID",pillars:"PILLARS",iman:"STAR",sunnah:"MOON",masjid:"MASJID",quran:"QURAN",character:"LEAF",prayerMatch:"STAR",deenMemory:"MEMORY",itemMatch:"MATCH",arabicMatch:"ARABIC",duaMatch:"DUA",goodSort:"KIND",pattern:"MOON",traceLetters:"TRACE",findLetter:"SEARCH",mosqueColour:"MASJID",lanternColour:"LANTERN",matColour:"PRAYER",moonColour:"MOON",geoColour:"STAR",freeDraw:"DRAW",maze:"MAZE",hidden:"SEARCH",odd:"SPOT",quick:"QUIZ",buildMosque:"BUILD"};
+const badges={wudu:"WUDU",salah:"MASJID",pillars:"PILLARS",iman:"STAR",sunnah:"MOON",masjid:"MASJID",quran:"QURAN",character:"LEAF",prayerMatch:"STAR",deenMemory:"MEMORY",itemMatch:"MATCH",arabicMatch:"ARABIC",duaMatch:"DUA",goodSort:"KIND",pattern:"MOON",traceLetters:"TRACE",findLetter:"SEARCH",mosqueColour:"MASJID",lanternColour:"LANTERN",matColour:"PRAYER",moonColour:"MOON",geoColour:"STAR",freeDraw:"DRAW",maze:"MAZE",hidden:"SEARCH",odd:"SPOT",quick:"QUIZ",buildMosque:"BUILD",wordSearch:"WORDS"};
 
 function save(){localStorage.setItem(KEY,JSON.stringify(db))}
 function p(){return db.profiles[db.active]}
 function esc(s){return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
 function show(id){document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");scrollTo(0,0);if(id==="dash")renderDash()}
 function createProfile(){let n=document.getElementById("nameInput").value.trim();if(!n)return;let id="p"+Date.now()+Math.random().toString(36).slice(2);db.profiles[id]={name:n,stars:0,completed:[],badges:[],traced:[]};db.active=id;save();show("dash")}
-function renderProfiles(){let b=document.getElementById("profiles");b.innerHTML="";Object.entries(db.profiles).forEach(([id,x])=>{let e=document.createElement("button");e.className="activity";e.innerHTML=`<div class="ico">ð</div><div><strong>${esc(x.name)}</strong><small>${x.stars} stars - ${x.completed.length} activities</small></div>`;e.onclick=()=>{db.active=id;save();show("dash")};b.appendChild(e)})}
+function renderProfiles(){let b=document.getElementById("profiles");b.innerHTML="";Object.entries(db.profiles).forEach(([id,x])=>{let e=document.createElement("button");e.className="activity";e.innerHTML=`<div class="ico"><span class="star-shape"></span></div><div><strong>${esc(x.name)}</strong><small>${x.stars} stars - ${x.completed.length} activities</small></div>`;e.onclick=()=>{db.active=id;save();show("dash")};b.appendChild(e)})}
 function profilesHome(){db.active=null;save();renderProfiles();show("home")}
 function level(){let n=p().completed.length;return n<5?"Little Explorer":n<12?"Deen Adventurer":n<20?"Knowledge Seeker":"Deen Champion"}
 function renderDash(){if(!p()){renderProfiles();show("home");return}document.getElementById("hello").textContent=p().name+"'s Deen Quest";document.getElementById("stars").innerHTML=`<span class="star-shape"></span> ${p().stars}`;document.getElementById("level").textContent="LEVEL "+level();document.getElementById("bar").style.width=Math.min(100,p().completed.length/allActivityIds.length*100)+"%"}
 function openWorld(type){if(type==="passport"){renderPassport();show("passport");return}currentWorld=type;let w=worlds[type];document.getElementById("worldTitle").textContent=w.title;document.getElementById("worldDesc").textContent=w.desc;document.getElementById("worldStars").innerHTML=`<span class="star-shape"></span> ${p().stars}`;let box=document.getElementById("activityList");box.innerHTML="";w.items.forEach(a=>{let done=p().completed.includes(a[0]);let b=document.createElement("button");b.className="activity";b.innerHTML=`<div class="ico">${a[1]}</div><div><strong>${a[2]} ${done?"DONE":""}</strong><small>${a[3]}</small></div>`;b.onclick=()=>launch(a[0]);box.appendChild(b)});show("world")}
 function backWorld(){openWorld(currentWorld)}
 function complete(id){if(!p().completed.includes(id)){p().completed.push(id);p().stars+=3;if(!p().badges.includes(badges[id]))p().badges.push(badges[id]);save();confetti()}}
-function success(id,msg="Masha Allah! You did it!"){complete(id);document.getElementById("gameBox").innerHTML+=`<div class="notice center"><strong>${msg} STAR</strong></div><button class="main" onclick="backWorld()">Continue -></button>`}
+function success(id,msg="Masha Allah! You did it!"){complete(id);document.getElementById("gameBox").innerHTML+=`<div class="notice center"><strong>${msg}</strong></div><button class="main" onclick="backWorld()">Continue -></button>`}
 function quiz(title,q,opts,correct,id){show("game");let box=document.getElementById("gameBox");box.innerHTML=`<div class="center"><h2>${title}</h2><p>${q}</p></div><div class="answers" id="opts"></div>`;opts.forEach((x,i)=>{let b=document.createElement("button");b.className="answer";b.textContent=x;b.onclick=()=>{if(i===correct){b.classList.add("correct");setTimeout(()=>success(id),250)}else{b.classList.add("wrong");setTimeout(()=>b.classList.remove("wrong"),500)}};document.getElementById("opts").appendChild(b)})}
 function launch(id){
  if(id==="wudu")return sequenceGame("WUDU Wudu Order",["Wash hands","Rinse mouth","Clean nose","Wash face","Wash arms","Wipe head","Wash feet"],id);
@@ -201,7 +249,7 @@ function launch(id){
  if(id==="character")return quiz("LEAF Kindness Hero","You accidentally break something. What should you do?",["Hide it","Tell the truth and apologise","Blame someone"],1,id);
  if(id==="prayerMatch")return matching("STAR Prayer Pairs",[["Fajr","2"],["Dhuhr","4"],["Asr","4"],["Maghrib","3"],["Isha","4"]],id);
  if(id==="itemMatch")return matching("MATCH What Goes Together?",[["MASJID Masjid","Prayer"],["QURAN Qur'an","Recitation"],["WUDU Wudu","Purification"],["DUA Du'a","Supplication"]],id);
- if(id==="arabicMatch")return matching("ARABIC Arabic Letter Match",[["Ø§","Alif"],["Ø¨","Baa"],["Øª","Taa"],["Ø«","Thaa"],["Ø¬","Jeem"]],id);
+ if(id==="arabicMatch")return matching("ARABIC Arabic Letter Match",[[arabicChar(0x0627),"Alif"],[arabicChar(0x0628),"Baa"],[arabicChar(0x062A),"Taa"],[arabicChar(0x062B),"Thaa"],[arabicChar(0x062C),"Jeem"]],id);
  if(id==="duaMatch")return matching("DUA Du'a Situations",[["Before eating","Bismillah"],["After eating","Alhamdulillah"],["Seeking forgiveness","Astaghfirullah"]],id);
  if(id==="deenMemory")return memoryGame(id);
  if(id==="goodSort")return quiz("KIND Good Choice","A friend is sad. What is a kind choice?",["Comfort them","Ignore them on purpose","Laugh"],0,id);
@@ -210,6 +258,7 @@ function launch(id){
  if(id==="findLetter")return findLetterGame(id);
  if(["mosqueColour","lanternColour","matColour","moonColour","geoColour","freeDraw"].includes(id))return startColour(id);
  if(id==="maze")return mazeGame(id);
+ if(id==="wordSearch")return wordSearch(id);
  if(id==="hidden")return hiddenGame(id);
  if(id==="odd")return quiz("SPOT What Doesn't Belong?","Which one is different?",["MASJID","MASJID","ð","MASJID"],2,id);
  if(id==="quick")return quickFire(id);
@@ -219,53 +268,131 @@ function sequenceGame(title,steps,id){show("game");let shuffled=[...steps].sort(
 function multiPick(title,correct,options,id){show("game");let picked=[];document.getElementById("gameBox").innerHTML=`<h2 class="center">${title}</h2><p class="center muted">Tap all the correct answers.</p><div class="answers" id="multi"></div><button class="main" id="checkMulti">Check My Answers</button>`;options.sort(()=>Math.random()-.5).forEach(x=>{let b=document.createElement("button");b.className="answer";b.textContent=x;b.onclick=()=>{b.classList.toggle("correct");picked.includes(x)?picked=picked.filter(v=>v!==x):picked.push(x)};document.getElementById("multi").appendChild(b)});document.getElementById("checkMulti").onclick=()=>{if([...picked].sort().join("|")===[...correct].sort().join("|"))success(id);else alert("Almost! Have another look LEAF")}}
 function matching(title,pairs,id){show("game");let L=pairs.map((x,i)=>[x[0],i]).sort(()=>Math.random()-.5),R=pairs.map((x,i)=>[x[1],i]).sort(()=>Math.random()-.5),a=null,b=null,count=0;document.getElementById("gameBox").innerHTML=`<h2 class="center">${title}</h2><p class="center muted">Tap one from each side.</p><div class="match"><div id="L"></div><div id="R"></div></div>`;function build(arr,side){arr.forEach(x=>{let e=document.createElement("button");e.className="tile";e.textContent=x[0];e.dataset.i=x[1];e.onclick=()=>{if(e.classList.contains("matched"))return;document.querySelectorAll("#"+side+" .tile").forEach(z=>z.classList.remove("selected"));e.classList.add("selected");side==="L"?a=e:b=e;if(a&&b){if(a.dataset.i===b.dataset.i){a.classList.add("matched");b.classList.add("matched");count++;if(count===pairs.length)setTimeout(()=>success(id),300)}else{let aa=a,bb=b;setTimeout(()=>{aa.classList.remove("selected");bb.classList.remove("selected")},450)}a=b=null}};document.getElementById(side).appendChild(e)})}build(L,"L");build(R,"R")}
 function memoryGame(id){show("game");let sy=["MASJID","QURAN","MOON","STAR","DUA","LANTERN"],deck=[...sy,...sy].sort(()=>Math.random()-.5),first=null,lock=false,n=0;document.getElementById("gameBox").innerHTML=`<h2 class="center">MEMORY Deen Memory</h2><p class="center muted">Find every matching pair.</p><div class="memory" id="mem"></div>`;deck.forEach(s=>{let b=document.createElement("button");b.className="mem";b.textContent="STAR";b.onclick=()=>{if(lock||b===first||b.classList.contains("done"))return;b.textContent=s;b.classList.add("open");if(!first){first=b;return}if(first.textContent===b.textContent){first.classList.add("done");b.classList.add("done");first=null;if(++n===sy.length)setTimeout(()=>success(id),300)}else{lock=true;let f=first;setTimeout(()=>{f.textContent=b.textContent="STAR";f.classList.remove("open");b.classList.remove("open");first=null;lock=false},650)}};document.getElementById("mem").appendChild(b)})}
-const letters=["Ø§","Ø¨","Øª","Ø«","Ø¬","Ø­","Ø®","Ø¯","Ø°","Ø±","Ø²","Ø³","Ø´","Øµ","Ø¶","Ø·","Ø¸","Ø¹","Øº","Ù","Ù","Ù","Ù","Ù","Ù","Ù","Ù","Ù"];
-function showTrace(){show("trace");document.getElementById("traceLetter").textContent=letters[traceIndex];document.getElementById("traceNo").textContent=(traceIndex+1)+" / "+letters.length;setTimeout(()=>setupDraw("traceCanvas","#819d7a"),40)}
-function nextTrace(){if(!p().traced.includes(letters[traceIndex])){p().traced.push(letters[traceIndex]);p().stars++;save()}if(traceIndex<letters.length-1){traceIndex++;showTrace()}else{complete("traceLetters");alert("Masha Allah! Arabic Letter Trail complete STAR");openWorld("trace")}}
+const ARABIC_LETTERS=[
+ ["Alif",0x0627],["Baa",0x0628],["Taa",0x062A],["Thaa",0x062B],["Jeem",0x062C],["Haa",0x062D],["Khaa",0x062E],
+ ["Daal",0x062F],["Dhaal",0x0630],["Raa",0x0631],["Zay",0x0632],["Seen",0x0633],["Sheen",0x0634],["Saad",0x0635],
+ ["Daad",0x0636],["Taa",0x0637],["Dhaa",0x0638],["Ayn",0x0639],["Ghayn",0x063A],["Faa",0x0641],["Qaaf",0x0642],
+ ["Kaaf",0x0643],["Laam",0x0644],["Meem",0x0645],["Noon",0x0646],["Haa",0x0647],["Waaw",0x0648],["Yaa",0x064A]
+];
+const arabicChar=cp=>String.fromCodePoint(cp);
+function showTrace(){
+ show("trace");
+ const L=ARABIC_LETTERS[traceIndex];
+ document.getElementById("traceLetter").textContent=arabicChar(L[1]);
+ document.getElementById("traceNo").textContent=L[0]+" - "+(traceIndex+1)+" / 28";
+ setTimeout(()=>setupDraw("traceCanvas","#819d7a"),40);
+}
+function nextTrace(){
+ const ch=arabicChar(ARABIC_LETTERS[traceIndex][1]);
+ if(!p().traced.includes(ch)){p().traced.push(ch);p().stars++;save()}
+ if(traceIndex<ARABIC_LETTERS.length-1){traceIndex++;showTrace()}
+ else{complete("traceLetters");alert("Masha Allah! Arabic Letter Trail complete.");traceIndex=0;openWorld("trace")}
+}
 function setupDraw(id,color){let c=document.getElementById(id),box=c.parentElement,dpr=devicePixelRatio||1;c.width=box.clientWidth*dpr;c.height=box.clientHeight*dpr;let x=c.getContext("2d");x.setTransform(dpr,0,0,dpr,0,0);x.lineWidth=14;x.lineCap="round";x.lineJoin="round";let down=false;function pt(e){let r=c.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}c.onpointerdown=e=>{e.preventDefault();down=true;c.setPointerCapture?.(e.pointerId);let q=pt(e);x.beginPath();x.moveTo(q.x,q.y)};c.onpointermove=e=>{if(!down)return;e.preventDefault();let q=pt(e);x.strokeStyle=id==="paintCanvas"?paintColor:color;x.globalCompositeOperation=paintColor==="eraser"?"destination-out":"source-over";x.lineTo(q.x,q.y);x.stroke()};c.onpointerup=c.onpointercancel=()=>down=false}
 function clearCanvas(id){let c=document.getElementById(id);c.getContext("2d").clearRect(0,0,c.width,c.height)}
-const colouring={mosqueColour:["Colour the Mosque","MASJID"],lanternColour:["Ramadan Lantern","LANTERN"],matColour:["Prayer Mat Designer","â£"],moonColour:["Moon & Stars","MOON STAR"],geoColour:["Geometric Art","STAR DIAMOND STAR"],freeDraw:["Free Draw",""]};
+const colouring={
+ mosqueColour:["Colour the Mosque","mosque"],lanternColour:["Ramadan Lantern","lantern"],
+ matColour:["Prayer Mat Designer","mat"],moonColour:["Moon & Stars","moon"],
+ geoColour:["Geometric Art","geo"],freeDraw:["Free Draw","free"]
+};
 let activeColour="";
-function startColour(id){activeColour=id;show("colour");let x=colouring[id];document.getElementById("colourTitle").textContent="ART "+x[0];document.getElementById("paintGuide").textContent=x[1];let cs=["#819d7a","#e3c36f","#f2b6b1","#a9cfe0","#b7a3cc","#ef9f6c","#4d5e49","#222222"];let bar=document.getElementById("colours");bar.innerHTML="";cs.forEach(c=>{let b=document.createElement("button");b.className="swatch";b.style.background=c;b.onclick=()=>paintColor=c;bar.appendChild(b)});paintColor=cs[0];setTimeout(()=>setupDraw("paintCanvas",paintColor),40)}
+function colourSVG(kind){
+ if(kind==="mosque")return `<svg viewBox="0 0 600 500" aria-label="Mosque outline"><g fill="none" stroke="#111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M105 420V215h75v205M420 420V215h75v205M95 215h95M410 215h95"/><path d="M115 215q27-60 55 0M430 215q27-60 55 0M143 153v-34M458 153v-34"/><path d="M175 420V245h250v175M215 245q85-150 170 0M295 114V80M287 84q16 10 30-4q-6 22-27 19"/><path d="M270 420v-92q30-48 60 0v92M205 300q20-30 40 0v55h-40zM355 300q20-30 40 0v55h-40zM70 420h460"/></g></svg>`;
+ if(kind==="lantern")return `<svg viewBox="0 0 600 500"><g fill="none" stroke="#111" stroke-width="7" stroke-linejoin="round"><path d="M270 65h60l18 45-18 28h-60l-18-28zM230 145h140l45 250H185zM205 250h190M225 350h150M260 145l-20 250M340 145l20 250M270 65q30-55 60 0M220 420h160"/></g></svg>`;
+ if(kind==="mat")return `<svg viewBox="0 0 600 500"><g fill="none" stroke="#111" stroke-width="7"><rect x="145" y="55" width="310" height="380" rx="18"/><path d="M180 400V175q120-145 240 0v225zM205 365h190M235 310h130"/><circle cx="300" cy="230" r="42"/><path d="M160 450v30m30-30v30m30-30v30m30-30v30m30-30v30m30-30v30m30-30v30m30-30v30m30-30v30"/></g></svg>`;
+ if(kind==="moon")return `<svg viewBox="0 0 600 500"><g fill="none" stroke="#111" stroke-width="7" stroke-linejoin="round"><path d="M345 95q-130 45-110 190q20 140 170 145q-105-55-90-170q12-100 95-145q-32-20-65-20z"/><path d="M445 125l12 31 34 2-27 21 9 33-28-18-28 18 9-33-27-21 34-2zM140 330l10 25 27 2-21 16 7 27-23-15-23 15 7-27-21-16 27-2z"/></g></svg>`;
+ if(kind==="geo")return `<svg viewBox="0 0 600 500"><g fill="none" stroke="#111" stroke-width="6"><circle cx="300" cy="250" r="165"/><circle cx="300" cy="250" r="110"/><path d="M300 85v330M135 250h330M183 133l234 234M417 133L183 367"/><path d="M300 140l32 78 83 32-83 32-32 78-32-78-83-32 83-32z"/></g></svg>`;
+ return "";
+}
+function startColour(id){
+ activeColour=id;show("colour");
+ const x=colouring[id];
+ document.getElementById("colourTitle").textContent=x[0];
+ document.getElementById("paintGuide").innerHTML=colourSVG(x[1]);
+ const cs=["#819d7a","#e3c36f","#f2b6b1","#a9cfe0","#b7a3cc","#ef9f6c","#4d5e49","#222222"];
+ const bar=document.getElementById("colours");bar.innerHTML="";
+ cs.forEach(c=>{let bt=document.createElement("button");bt.className="swatch";bt.style.background=c;bt.onclick=()=>paintColor=c;bar.appendChild(bt)});
+ paintColor=cs[0];setTimeout(()=>setupDraw("paintCanvas",paintColor),40);
+}
 function setEraser(){paintColor="eraser"} function finishColour(){complete(activeColour);confetti();setTimeout(()=>openWorld("colour"),500)}
-function findLetterGame(id){let target=letters[Math.floor(Math.random()*10)],arr=[target,...letters.slice(0,11).filter(x=>x!==target).sort(()=>Math.random()-.5).slice(0,8)].sort(()=>Math.random()-.5);show("game");document.getElementById("gameBox").innerHTML=`<h2 class="center">SEARCH Find the Letter</h2><p class="center">Can you find <strong style="font-size:35px">${target}</strong>?</p><div class="answers" id="letters"></div>`;arr.forEach(x=>{let b=document.createElement("button");b.className="answer center";b.style.fontSize="28px";b.textContent=x;b.onclick=()=>x===target?success(id):b.classList.add("wrong");document.getElementById("letters").appendChild(b)})}
+function findLetterGame(id){
+ const target=ARABIC_LETTERS[Math.floor(Math.random()*ARABIC_LETTERS.length)];
+ let opts=[target];
+ while(opts.length<7){
+  const x=ARABIC_LETTERS[Math.floor(Math.random()*ARABIC_LETTERS.length)];
+  if(!opts.some(o=>o[1]===x[1]))opts.push(x);
+ }
+ opts.sort(()=>Math.random()-.5);show("game");
+ document.getElementById("gameBox").innerHTML=`<h2 class="center">Find the Letter</h2><p class="center muted">Find <strong>${target[0]}</strong></p><div class="traceLetter arabic-safe">${arabicChar(target[1])}</div><div class="answers" id="letters"></div>`;
+ opts.forEach(x=>{let bt=document.createElement("button");bt.className="answer center arabic-choice";bt.style.fontSize="38px";bt.textContent=arabicChar(x[1]);bt.onclick=()=>x[1]===target[1]?success(id):bt.classList.add("wrong");document.getElementById("letters").appendChild(bt)});
+}
 function hiddenGame(id){show("game");let icons=["STAR","MOON","LANTERN","FLOWER","MOON","MASJID","CLOUD","MOON","QURAN","STAR","MOON","LEAF","LANTERN","MOON","DUA"].sort(()=>Math.random()-.5),need=icons.filter(x=>x==="MOON").length,got=0;document.getElementById("gameBox").innerHTML=`<h2 class="center">SEARCH Hidden Crescent Hunt</h2><p class="center">Find all ${need} crescent moons!</p><div class="worlds" id="hunt" style="padding:5px"></div>`;icons.forEach(x=>{let b=document.createElement("button");b.className="world center";b.style.minHeight="75px";b.style.fontSize="30px";b.textContent=x;b.onclick=()=>{if(x==="MOON"&&!b.disabled){b.disabled=true;b.style.opacity=.25;if(++got===need)success(id)}};document.getElementById("hunt").appendChild(b)})}
 function mazeGame(id){
- show("game");
- let row=5,col=0;
+ show("game");let row=5,col=0;
  const goal={row:0,col:5};
  const walls=new Set(["1,1","1,2","1,4","2,1","2,4","3,1","3,2","3,4","4,1","4,2"]);
- document.getElementById("gameBox").innerHTML=`
- <h2 class="center">Masjid Maze</h2>
- <p class="center muted">Use the arrows to help the star reach the masjid.</p>
- <div class="maze" id="maze"></div>
- <div class="maze-controls">
- <button class="smallbtn arrowbtn arrow-up" aria-label="Move up" onclick="moveMaze(0,-1)"></button>
- <button class="smallbtn arrowbtn arrow-left" aria-label="Move left" onclick="moveMaze(-1,0)"></button>
- <button class="smallbtn arrowbtn arrow-down" aria-label="Move down" onclick="moveMaze(0,1)"></button>
- <button class="smallbtn arrowbtn arrow-right" aria-label="Move right" onclick="moveMaze(1,0)"></button>
- </div>`;
- window.moveMaze=function(dx,dy){
-   const nr=row+dy,nc=col+dx;
-   if(nr<0||nr>5||nc<0||nc>5||walls.has(nr+","+nc))return;
-   row=nr;col=nc;drawMaze();
-   if(row===goal.row&&col===goal.col)setTimeout(()=>success(id),180);
- };
- function drawMaze(){
-   const m=document.getElementById("maze");m.innerHTML="";
-   for(let r=0;r<6;r++)for(let c=0;c<6;c++){
-     const cell=document.createElement("div"),key=r+","+c;
-     cell.className="cell"+(walls.has(key)?" wall":"")+(r===row&&c===col?" player":"")+(r===goal.row&&c===goal.col?" goal":"");
-     if(r===row&&c===col)cell.innerHTML='<span class="star-shape"></span>';
-     else if(r===goal.row&&c===goal.col){cell.textContent="MASJID";cell.style.fontSize="8px";cell.style.fontWeight="900"}
-     m.appendChild(cell);
-   }
+ document.getElementById("gameBox").innerHTML=`<h2 class="center">Masjid Maze</h2><p class="center muted">Help the star reach the masjid.</p><div class="maze" id="maze"></div><div class="maze-controls"><button type="button" class="smallbtn arrowbtn arrow-up" id="mazeUp" aria-label="Move up"></button><button type="button" class="smallbtn arrowbtn arrow-left" id="mazeLeft" aria-label="Move left"></button><button type="button" class="smallbtn arrowbtn arrow-down" id="mazeDown" aria-label="Move down"></button><button type="button" class="smallbtn arrowbtn arrow-right" id="mazeRight" aria-label="Move right"></button></div>`;
+ function move(dx,dy){
+  const nr=row+dy,nc=col+dx;
+  if(nr<0||nr>5||nc<0||nc>5||walls.has(nr+","+nc))return;
+  row=nr;col=nc;draw();
+  if(row===goal.row&&col===goal.col)setTimeout(()=>success(id),180);
  }
- drawMaze();
+ document.getElementById("mazeUp").onclick=()=>move(0,-1);
+ document.getElementById("mazeDown").onclick=()=>move(0,1);
+ document.getElementById("mazeLeft").onclick=()=>move(-1,0);
+ document.getElementById("mazeRight").onclick=()=>move(1,0);
+ function draw(){
+  const m=document.getElementById("maze");m.innerHTML="";
+  for(let r=0;r<6;r++)for(let c=0;c<6;c++){
+   const cell=document.createElement("div"),key=r+","+c;
+   cell.className="cell"+(walls.has(key)?" wall":"")+(r===row&&c===col?" player":"")+(r===goal.row&&c===goal.col?" goal":"");
+   if(r===row&&c===col)cell.innerHTML='<span class="star-shape"></span>';
+   else if(r===goal.row&&c===goal.col)cell.innerHTML='<span class="mazeMasjid" aria-label="masjid"></span>';
+   m.appendChild(cell);
+  }
+ }
+ draw();
+}
+function wordSearch(id){
+ show("game");
+ const rows=["SALAHDEE","QURANUID","MASJIDMU","SUNNAHAA","DUASABNW","IMANSREU","DEENAALD","SABRMHKA"];
+ const grid=rows.join("").split("");
+ const words=["SALAH","QURAN","MASJID","SUNNAH","DUA","IMAN","DEEN","SABR"];
+ let selected=[],found=new Set();
+ document.getElementById("gameBox").innerHTML=`<h2 class="center">Deen Word Search</h2><p class="center muted">Tap letters in order to find each word.</p><div class="wordBank" id="wordBank"></div><div class="wordGrid" id="wordGrid"></div><button class="smallbtn" id="clearWords">Clear selection</button>`;
+ const bank=document.getElementById("wordBank"),board=document.getElementById("wordGrid");
+ function renderBank(){bank.innerHTML=words.map(w=>`<span class="wordChip ${found.has(w)?"done":""}">${w}</span>`).join("")}
+ function resetPick(){selected=[];board.querySelectorAll(".wordCell").forEach(x=>x.classList.remove("pick"))}
+ function check(){
+  const text=selected.map(i=>grid[i]).join("");
+  const rev=text.split("").reverse().join("");
+  const hit=words.find(w=>!found.has(w)&&(text===w||rev===w));
+  if(hit){found.add(hit);selected.forEach(i=>board.querySelector(`[data-i="${i}"]`).classList.add("found"));resetPick();renderBank();if(found.size===words.length)setTimeout(()=>success(id),250)}
+  else if(!words.some(w=>w.startsWith(text)||w.startsWith(rev)))resetPick();
+ }
+ grid.forEach((ch,i)=>{const bt=document.createElement("button");bt.className="wordCell";bt.textContent=ch;bt.dataset.i=i;bt.onclick=()=>{if(bt.classList.contains("found"))return;selected.push(i);bt.classList.add("pick");check()};board.appendChild(bt)});
+ document.getElementById("clearWords").onclick=resetPick;renderBank();
 }
 function quickFire(id){let qs=[["Fajr fard rak'ahs?",["2","3","4"],0],["What do we say before eating?",["Bismillah","Goodbye","Nothing"],0],["Which opens the Qur'an?",["Al-Fatihah","An-Nas","Al-Falaq"],0],["Maghrib fard rak'ahs?",["2","3","4"],1],["A kind action?",["Helping","Mocking","Lying"],0]],i=0,score=0;function next(){if(i===qs.length){if(score>=4)success(id,`Great work â ${score}/5!`);else{document.getElementById("gameBox").innerHTML=`<h2 class="center">You got ${score}/5 LEAF</h2><button class="main" onclick="launch('quick')">Try Again</button>`}return}let q=qs[i];quizLocal(q)}function quizLocal(q){show("game");let box=document.getElementById("gameBox");box.innerHTML=`<h2 class="center">QUIZ Quick-Fire ${i+1}/5</h2><p class="center">${q[0]}</p><div class="answers" id="qf"></div>`;q[1].forEach((x,j)=>{let b=document.createElement("button");b.className="answer";b.textContent=x;b.onclick=()=>{if(j===q[2])score++;i++;next()};document.getElementById("qf").appendChild(b)})}next()}
-function renderPassport(){document.getElementById("passName").textContent=p().name+"'s Deen Passport";document.getElementById("passLevel").textContent="LEVEL "+level()+" - STAR "+p().stars+" stars";document.getElementById("certName").textContent=p().name;let box=document.getElementById("badges");box.innerHTML="";let unique=[...new Set(Object.values(badges))];unique.forEach(b=>{let e=document.createElement("div");e.className="badge"+(p().badges.includes(b)?"":" locked");e.textContent=b;box.appendChild(e)})}
-function confetti(){let sy=["STAR","STAR","MOON","FLOWER"];for(let i=0;i<22;i++){let e=document.createElement("div");e.className="confetti";e.textContent=sy[Math.floor(Math.random()*sy.length)];e.style.left=Math.random()*100+"vw";document.body.appendChild(e);setTimeout(()=>{e.style.transform=`translateY(${80+Math.random()*20}vh) rotate(${Math.random()*500}deg)`;e.style.opacity=0},20);setTimeout(()=>e.remove(),1400)}}
+function badgeMeta(code){
+ const m={
+ WUDU:["Wudu","&#9675;"],MASJID:["Prayer","&#8962;"],PILLARS:["5 Pillars","&#9638;"],STAR:["Iman","&#10022;"],
+ MOON:["Sunnah","&#9684;"],QURAN:["Quran","&#9636;"],LEAF:["Kindness","&#9826;"],MEMORY:["Memory","&#9638;"],
+ MATCH:["Matching","&#10761;"],ARABIC:["Arabic","&#1575;"],DUA:["Dua","&#9825;"],KIND:["Good Choices","&#10003;"],
+ TRACE:["Tracing","&#9998;"],SEARCH:["Finder","&#8981;"],LANTERN:["Lantern","&#9671;"],PRAYER:["Prayer Mat","&#9635;"],
+ DRAW:["Drawing","&#9678;"],MAZE:["Maze","&#9638;"],SPOT:["Spot It","&#8857;"],QUIZ:["Quiz","?"],BUILD:["Build","&#8962;"],WORDS:["Word Search","W"]
+ };return m[code]||[code,"&#10022;"];
+}
+function renderPassport(){
+ document.getElementById("passName").textContent=p().name+"'s Deen Passport";
+ document.getElementById("passLevel").innerHTML=`<strong>LEVEL ${level()}</strong><span class="star-shape"></span><span>${p().stars} stars</span>`;
+ document.getElementById("certName").textContent=p().name;
+ const box=document.getElementById("badges");box.innerHTML="";
+ const unique=[...new Set(Object.values(badges))];
+ unique.forEach(code=>{const meta=badgeMeta(code),e=document.createElement("div");e.className="badge"+(p().badges.includes(code)?"":" locked");e.innerHTML=`<span class="badgeSymbol">${meta[1]}</span><span class="badgeText">${meta[0]}</span>`;box.appendChild(e)});
+}
+function confetti(){let sy=["+","*",".","+"];for(let i=0;i<22;i++){let e=document.createElement("div");e.className="confetti";e.textContent=sy[Math.floor(Math.random()*sy.length)];e.style.left=Math.random()*100+"vw";document.body.appendChild(e);setTimeout(()=>{e.style.transform=`translateY(${80+Math.random()*20}vh) rotate(${Math.random()*500}deg)`;e.style.opacity=0},20);setTimeout(()=>e.remove(),1400)}}
 renderProfiles();if(db.active&&db.profiles[db.active])show("dash");
 </script>
 </body>
