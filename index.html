@@ -70,39 +70,59 @@ canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none}.toolb
 .icon-cup:before{content:"";width:31px;height:28px;background:#dfbd62;border-radius:5px 5px 13px 13px;position:absolute;top:7px}.icon-cup:after{content:"";width:25px;height:7px;background:#86a780;border-radius:6px;position:absolute;bottom:8px;box-shadow:0 -7px 0 -2px #86a780}
 .scene{background:linear-gradient(#f8fbf4 0%,#fdfaf1 70%)}
 
+
+/* V7 MOBILE LAYOUT FIXES */
+.world{overflow:hidden!important;padding:18px!important;min-height:165px!important}
+.world:after{display:none!important;content:none!important}
+.world h3{position:relative;z-index:2;margin:12px 0 7px!important;line-height:1.12!important}
+.world p{position:relative;z-index:2;line-height:1.4!important;display:block!important;overflow:visible!important}
+.world .ico{position:relative;z-index:2}
+.activity{overflow:hidden!important}
+.activity:after{display:none!important}
+
+/* replace leftover word-label activity icons with clean text badges */
+.activity .ico{
+  min-width:72px!important;width:72px!important;height:58px!important;
+  border-radius:18px!important;padding:7px!important;font-size:10px!important;
+  letter-spacing:1px!important;overflow:hidden!important;
+}
+
+/* certificate mobile redesign */
+#passport .certificate{
+  width:calc(100% - 20px)!important;
+  max-width:none!important;
+  margin:14px 10px!important;
+  padding:42px 22px!important;
+  min-height:500px!important;
+  border:4px solid #d7bd6d!important;
+  outline:2px solid #d7bd6d!important;
+  outline-offset:-11px!important;
+  border-radius:28px!important;
+  box-shadow:0 14px 35px rgba(69,93,69,.12)!important;
+  background:linear-gradient(180deg,#fffdf8,#fffaf0)!important;
+}
+.certificate .arabic{font-size:25px!important;line-height:1.8!important;direction:rtl!important;font-family:serif!important}
+.certificate h1{font-size:38px!important;line-height:1.05!important;margin:24px 0!important}
+.certificate h2{font-size:34px!important;margin:28px 0!important;color:#526b50!important}
+.certificate p{font-size:18px!important;line-height:1.55!important}
+.certificate strong{display:block;margin-top:28px!important;font-size:16px!important}
+
+/* phone card spacing */
+@media(max-width:520px){
+ .worlds{gap:14px!important;padding:10px 14px!important}
+ .world{min-height:185px!important;padding:16px!important}
+ .world h3{font-size:23px!important}
+ .world p{font-size:14px!important}
+ #passport .card:not(.certificate){margin-left:14px!important;margin-right:14px!important}
+}
+
 </style>
 </head>
 <body>
 <div class="app">
 <section id="home" class="screen active">
  <div class="header"><div class="logo">ISLAMIC BLOOM</div><div class="pill brand-pill"><span class="mini-moon"></span> DEEN QUEST</div></div>
- <div class="hero"><div class="arabic">Ø¨ÙØ³ÙÙÙ Ù±ÙÙÙÙÙ°ÙÙ</div><h1>Play - Learn - <span>Explore</span></h1><p>A playful Islamic activity adventure made for little learners.</p></div>
- <div class="scene">
-<div class="cloud cloud1"><i></i><b></b></div>
-<div class="cloud cloud2"><i></i><b></b></div>
-<div class="sun happy"><span class="eye e1"></span><span class="eye e2"></span><span class="smile"></span></div><div class="hill"></div><div class="hill two"></div><div class="mosque happy-building"><div class="dome"></div><div class="door"></div>
-<span class="eye be1"></span><span class="eye be2"></span><span class="bsmile"></span></div></div>
- <div class="card"><h3>Who's playing today?</h3><p class="muted">Each child gets their own private progress on this device.</p><div id="profiles"></div><input id="nameInput" maxlength="24" placeholder="Child's first name"><button class="main" onclick="createProfile()">Create Deen Passport</button></div>
-</section>
-
-<section id="dash" class="screen">
- <div class="header"><button class="ghost" onclick="profilesHome()"><- Profiles</button><div class="pill" id="stars">STAR 0</div></div>
- <div class="card"><small>AS-SALAMU ALAYKUM</small><h2 id="hello"></h2><div id="level" class="level"></div><div class="progress"><div id="bar"></div></div></div>
- <div class="worlds">
-  <button class="world" onclick="openWorld('learn')"><div class="ico icon-moon"><span></span></div><h3>Learn & Explore</h3><p>Wudu, Salah, Sunnah, pillars and more.</p></button>
-  <button class="world" onclick="openWorld('match')"><div class="ico icon-puzzle"><span></span></div><h3>Match & Play</h3><p>Matching, memory, sorting and patterns.</p></button>
-  <button class="world" onclick="openWorld('trace')"><div class="ico icon-pencil"><span></span></div><h3>Trace Arabic</h3><p>Finger and Apple Pencil letter practice.</p></button>
-  <button class="world" onclick="openWorld('colour')"><div class="ico icon-palette"><span></span></div><h3>Colour & Create</h3><p>Colour, draw and design Islamic scenes.</p></button>
-  <button class="world" onclick="openWorld('puzzle')"><div class="ico icon-search"><span></span></div><h3>Puzzles & Hunts</h3><p>Mazes, hidden objects and quick challenges.</p></button>
-  <button class="world" onclick="openWorld('passport')"><div class="ico icon-cup"><span></span></div><h3>My Passport</h3><p>Badges, level and completion certificate.</p></button>
- </div>
-</section>
-
-<section id="world" class="screen"><div class="header"><button class="ghost" onclick="show('dash')"><- Home</button><div class="pill" id="worldStars"></div></div><div class="card"><h2 id="worldTitle"></h2><p id="worldDesc" class="muted"></p><div id="activityList"></div></div></section>
-<section id="game" class="screen"><div class="header"><button class="ghost" onclick="backWorld()"><- Back</button><div class="pill">DEEN QUEST</div></div><div class="card" id="gameBox"></div></section>
-<section id="trace" class="screen"><div class="header"><button class="ghost" onclick="openWorld('trace')"><- Trace</button><div class="pill" id="traceNo"></div></div><div class="card center"><h2>TRACE Arabic Letter Trail</h2><p class="muted">Trace over the pale letter with your finger or Apple Pencil.</p><div class="traceBox"><div id="traceLetter" class="traceLetter">Ø§</div><canvas id="traceCanvas"></canvas></div><div class="toolbar"><button class="smallbtn" onclick="clearCanvas('traceCanvas')">Clear</button><button class="main" onclick="nextTrace()">Done STAR</button></div></div></section>
-<section id="colour" class="screen"><div class="header"><button class="ghost" onclick="openWorld('colour')"><- Create</button><div class="pill" id="colourNo"></div></div><div class="card center"><h2 id="colourTitle"></h2><p class="muted">Colour freely with your finger or Apple Pencil.</p><div class="drawBox"><div id="paintGuide" class="paintGuide"></div><canvas id="paintCanvas"></canvas></div><div class="toolbar" id="colours"></div><div class="toolbar"><button class="smallbtn" onclick="setEraser()">Eraser</button><button class="smallbtn" onclick="clearCanvas('paintCanvas')">Clear</button><button class="main" onclick="finishColour()">Finished STAR</button></div></div></section>
-<section id="passport" class="screen"><div class="header"><button class="ghost" onclick="show('dash')"><- Home</button><div class="pill">AWARDS PASSPORT</div></div><div class="card"><h2 id="passName"></h2><div id="passLevel" class="level"></div><h3>My badges</h3><div id="badges" class="badgeGrid"></div></div><div class="card certificate" id="certificate"><div class="arabic">ÙÙØ§ Ø´ÙØ§Ø¡Ù Ù±ÙÙÙÙÙ°ÙÙ</div><h1>Deen Quest Certificate</h1><p>This certificate celebrates</p><h2 id="certName"></h2><p>for learning, playing and growing in Islamic knowledge.</p><strong>Islamic Bloom - Deen Quest</strong></div><div class="card"><button class="main" onclick="window.print()">Print My Certificate</button></div></section>
+ <div class="hero"><div class="arabic">&#1605;&#1614;&#1575; &#1588;&#1614;&#1575;&#1569;&#1614; &#1649;&#1604;&#1604;&#1617;&#1614;&#1607;&#1615;</div><h1>Deen Quest<br>Certificate</h1><p>This certificate celebrates</p><h2 id="certName"></h2><p>for learning, playing and growing in Islamic knowledge.</p><strong>Islamic Bloom - Deen Quest</strong></div><div class="card"><button class="main" onclick="window.print()">Print My Certificate</button></div></section>
 </div>
 
 <script>
